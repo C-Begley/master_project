@@ -43,7 +43,7 @@ def schedule_order(tasks):
     print(sch_period)
     mock_time = 0
     task_pattern = []
-    tasks_list = sorted_x = sorted(tasks.items(), key=lambda kv: kv[1]["period"])
+    tasks_list = sorted(tasks.items(), key=lambda kv: kv[1]["period"])
     unscheduled = [x[0] for x in tasks_list]
     initial = []
     next_deadline = {}
@@ -56,6 +56,8 @@ def schedule_order(tasks):
             if mock_time > next_deadline[task]:
                 unscheduled.append(task)
                 next_deadline[task] += tasks[task]["period"]
+                unscheduled.sort(key=lambda kv: next_deadline[kv])
+                scheduled.remove(task)
         next_t = unscheduled[0]
         print(next_t, mock_time)
         task_pattern.append(next_t)
@@ -74,18 +76,23 @@ def schedule_order(tasks):
 
     while mock_time < sch_period:
             for task in scheduled:
-                if mock_time > next_deadline[task]:
+                if mock_time >= next_deadline[task]:
+                   # print("scheduling", task, next_deadline)
                     unscheduled.append(task)
                     next_deadline[task] += tasks[task]["period"]
+                    unscheduled.sort(key=lambda kv: next_deadline[kv])
+                    scheduled.remove(task)
+                   # print("Scheduled", task, next_deadline)
             if len(unscheduled) != 0:
-                task = unscheduled[0]
-                print(task, mock_time)
+                next_t= unscheduled[0]
+                print(next_t, mock_time)
                 del unscheduled[0]
-                task_pattern.append(task)
-                mock_time += tasks[task]["time"]
-                next_deadline[task] = next_deadline[task] + tasks[task]["period"]
+                task_pattern.append(next_t)
+                mock_time += tasks[next_t]["time"]
+                scheduled.append(next_t)
             else:
                 mock_time += PERIOD
+           # print(mock_time,next_deadline)
 
 
     return task_pattern
@@ -94,7 +101,7 @@ def schedule_order(tasks):
 
 
 sample = json.loads('{"coms":{"time":10, "period":30}')
-samples = json.loads('{"P1":{"time":1, "period":8}, "P2":{"time":2, "period":5}, "P3":{"time":2, "period":10}}')
+samples = json.loads('{"P2":{"time":1, "period":8}, "P1":{"time":2, "period":5}, "P3":{"time":2, "period":10}}')
 
 bad_samples = json.loads('{"coms":{"time":10, "period":30}, "payload":{"time":15, "period":20} }')
 
