@@ -40,7 +40,6 @@ def possible_schedule(tasks):
 def schedule_order(tasks):
     periods = sorted([tasks[task]["period"] for task in tasks])
     sch_period = lcm_arr(periods)
-    print(sch_period)
     mock_time = 0
     task_pattern = []
     tasks_list = sorted(tasks.items(), key=lambda kv: kv[1]["period"])
@@ -49,63 +48,47 @@ def schedule_order(tasks):
     next_deadline = {}
     scheduled = []
 
-    #Initial Scheduling
-    i = 0
-    while len(initial) != len(tasks):
-        for task in scheduled:
-            if mock_time > next_deadline[task]:
-                unscheduled.append(task)
-                next_deadline[task] += tasks[task]["period"]
-                unscheduled.sort(key=lambda kv: next_deadline[kv])
-                scheduled.remove(task)
-        next_t = unscheduled[0]
-        print(next_t, mock_time)
-        task_pattern.append(next_t)
-        scheduled.append(next_t)
-        mock_time+=tasks[next_t]["time"]
-
-        if next_t not in next_deadline:
-            next_deadline[next_t] = tasks[next_t]["period"]
-        else:
-            next_deadline[next_t] += tasks[next_t]["period"]
-
-        del unscheduled[0]
-
-        if next_t not in initial:
-            initial.append(next_t)
+    for task in tasks:
+        unscheduled.append(task)
+        next_deadline[task] = tasks[task]["period"]
 
     while mock_time < sch_period:
             for task in scheduled:
                 if mock_time >= next_deadline[task]:
-                   # print("scheduling", task, next_deadline)
                     unscheduled.append(task)
                     next_deadline[task] += tasks[task]["period"]
                     unscheduled.sort(key=lambda kv: next_deadline[kv])
                     scheduled.remove(task)
-                   # print("Scheduled", task, next_deadline)
             if len(unscheduled) != 0:
                 next_t= unscheduled[0]
-                print(next_t, mock_time)
                 del unscheduled[0]
-                task_pattern.append(next_t)
+                task_pattern.append((next_t, mock_time))
                 mock_time += tasks[next_t]["time"]
                 scheduled.append(next_t)
             else:
                 mock_time += PERIOD
-           # print(mock_time,next_deadline)
-
-
-    return task_pattern
-
-
-
+    return (task_pattern, sch_period)
 
 sample = json.loads('{"coms":{"time":10, "period":30}')
-samples = json.loads('{"P2":{"time":1, "period":8}, "P1":{"time":2, "period":5}, "P3":{"time":2, "period":10}}')
+samples = json.loads('{"P2":{"time":1000, "period":8000}, "P1":{"time":2000, "period":5000}, "P3":{"time":2000, "period":10000}}')
 
 bad_samples = json.loads('{"coms":{"time":10, "period":30}, "payload":{"time":15, "period":20} }')
 
-'''
-initial = time.monotonic()
-while True:
-'''
+def run_schedule(task_pattern, sch_period):
+    t = time.monotonic_ns()
+    sch_t = 0
+    i =0
+    n = len(task_pattern)
+
+    while True:
+        if t + 1000000 <= time.monotonic_ns():
+            t += 1000000
+            sch_t = ((sch_t+1)%sch_period)
+            if task_pattern[i][1] == sch_t-1000:
+                print(task_pattern[i][0])
+                i=((i+1)%n)
+            elif sch_t%100 == 0:
+                print(".", end = "")
+
+
+#import mono_sch as m; print(m.samples, end="\n \n \n"); sch = m.schedule_order(m.samples); print(sch, end="\n \n \n"); m.run_schedule(sch[0], sch[1])
