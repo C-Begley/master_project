@@ -8,7 +8,7 @@
 </settings>
 <grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="mm" altunit="mm"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="yes"/>
 <layer number="3" name="Route3" color="17" fill="1" visible="no" active="no"/>
 <layer number="4" name="Route4" color="18" fill="1" visible="no" active="no"/>
@@ -22,8 +22,8 @@
 <layer number="12" name="Route12" color="20" fill="1" visible="no" active="no"/>
 <layer number="13" name="Route13" color="21" fill="1" visible="no" active="no"/>
 <layer number="14" name="Route14" color="22" fill="1" visible="no" active="no"/>
-<layer number="15" name="Route15" color="23" fill="1" visible="yes" active="yes"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="15" name="Route15" color="23" fill="1" visible="no" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="no" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
@@ -78,7 +78,7 @@
 <wire x1="320" y1="353" x2="30" y2="353" width="0" layer="20"/>
 <wire x1="30" y1="353" x2="30" y2="86" width="0" layer="20"/>
 <text x="237" y="328" size="3.81" layer="1" font="vector">Designed by Conor Begley</text>
-<text x="240" y="321" size="3.81" layer="1" font="vector">MEng Project 2020-21</text>
+<text x="249.08" y="323.39" size="2.1844" layer="1" font="vector">MEng Project 2020-21</text>
 <dimension x1="91" y1="283" x2="74.49" y2="282.41" x3="82.745" y3="74" textsize="1.778" layer="47" dtype="horizontal"/>
 <dimension x1="91" y1="283" x2="74.49" y2="282.4" x3="82.745" y3="304" textsize="1.778" layer="47" dtype="horizontal"/>
 <dimension x1="74.49" y1="286" x2="83.38" y2="286.02" x3="78.935" y3="301" textsize="1.778" layer="47" dtype="horizontal"/>
@@ -4384,86 +4384,66 @@
 <text x="145" y="172" size="0.55" layer="21" align="center">UN03</text>
 <text x="147" y="172" size="0.55" layer="21" align="center">UN05</text>
 <text x="149" y="172" size="0.55" layer="21" align="center">UN07</text>
-<text x="61.53" y="215" size="0.55" layer="21" rot="R90" align="center">H1-1</text>
-<text x="61.53" y="225" size="0.55" layer="21" rot="R90" align="center">H1-11</text>
-<text x="61.53" y="217" size="0.55" layer="21" rot="R90" align="center">H1-3</text>
-<text x="61.53" y="219" size="0.55" layer="21" rot="R90" align="center">H1-5</text>
-<text x="61.53" y="221" size="0.55" layer="21" rot="R90" align="center">H1-7</text>
-<text x="61.53" y="223" size="0.55" layer="21" rot="R90" align="center">H1-9</text>
-<text x="61.53" y="227" size="0.55" layer="21" rot="R90" align="center">H1-13</text>
-<text x="61.53" y="229" size="0.55" layer="21" rot="R90" align="center">H1-15</text>
-<text x="61.53" y="233" size="0.55" layer="21" rot="R90" align="center">H1-19</text>
-<text x="61.53" y="231" size="0.55" layer="21" rot="R90" align="center">H1-17</text>
-<text x="61.53" y="235" size="0.55" layer="21" rot="R90" align="center">H1-21</text>
-<text x="61.53" y="237" size="0.55" layer="21" rot="R90" align="center">H1-23</text>
-<text x="61.53" y="239" size="0.55" layer="21" rot="R90" align="center">H1-25</text>
-<text x="61.53" y="241" size="0.55" layer="21" rot="R90" align="center">H1-27</text>
-<text x="61.53" y="243" size="0.55" layer="21" rot="R90" align="center">H1-29</text>
-<text x="61.53" y="245" size="0.55" layer="21" rot="R90" align="center">H1-31</text>
-<text x="61.53" y="247" size="0.55" layer="21" rot="R90" align="center">H1-33</text>
-<text x="61.53" y="249" size="0.55" layer="21" rot="R90" align="center">H1-35</text>
-<text x="61.53" y="251" size="0.55" layer="21" rot="R90" align="center">H1-37</text>
-<text x="61.53" y="253" size="0.55" layer="21" rot="R90" align="center">H1-39</text>
-<text x="61.53" y="255" size="0.55" layer="21" rot="R90" align="center">H1-41</text>
-<text x="61.53" y="257" size="0.55" layer="21" rot="R90" align="center">H1-43</text>
-<text x="61.53" y="259" size="0.55" layer="21" rot="R90" align="center">H1-45</text>
-<text x="61.53" y="261" size="0.55" layer="21" rot="R90" align="center">H1-47</text>
-<text x="61.53" y="263" size="0.55" layer="21" rot="R90" align="center">H1-49</text>
-<text x="61.53" y="265" size="0.55" layer="21" rot="R90" align="center">H1-51</text>
-<text x="61.53" y="267" size="0.55" layer="21" rot="R90" align="center">UN01</text>
-<text x="61.53" y="269" size="0.55" layer="21" rot="R90" align="center">UN03</text>
-<text x="61.53" y="271" size="0.55" layer="21" rot="R90" align="center">UN05</text>
-<text x="61.53" y="273" size="0.55" layer="21" rot="R90" align="center">UN07</text>
-<text x="297.29" y="215.98" size="0.55" layer="21" rot="R90" align="center">H1-1</text>
-<text x="297.29" y="225.98" size="0.55" layer="21" rot="R90" align="center">H1-11</text>
-<text x="297.29" y="217.98" size="0.55" layer="21" rot="R90" align="center">H1-3</text>
-<text x="297.29" y="219.98" size="0.55" layer="21" rot="R90" align="center">H1-5</text>
-<text x="297.29" y="221.98" size="0.55" layer="21" rot="R90" align="center">H1-7</text>
-<text x="297.29" y="223.98" size="0.55" layer="21" rot="R90" align="center">H1-9</text>
-<text x="297.29" y="227.98" size="0.55" layer="21" rot="R90" align="center">H1-13</text>
-<text x="297.29" y="229.98" size="0.55" layer="21" rot="R90" align="center">H1-15</text>
-<text x="297.29" y="233.98" size="0.55" layer="21" rot="R90" align="center">H1-19</text>
-<text x="297.29" y="231.98" size="0.55" layer="21" rot="R90" align="center">H1-17</text>
-<text x="297.29" y="235.98" size="0.55" layer="21" rot="R90" align="center">H1-21</text>
-<text x="297.29" y="237.98" size="0.55" layer="21" rot="R90" align="center">H1-23</text>
-<text x="297.29" y="239.98" size="0.55" layer="21" rot="R90" align="center">H1-25</text>
-<text x="297.29" y="241.98" size="0.55" layer="21" rot="R90" align="center">H1-27</text>
-<text x="297.29" y="243.98" size="0.55" layer="21" rot="R90" align="center">H1-29</text>
-<text x="297.29" y="245.98" size="0.55" layer="21" rot="R90" align="center">H1-31</text>
-<text x="297.29" y="247.98" size="0.55" layer="21" rot="R90" align="center">H1-33</text>
-<text x="297.29" y="249.98" size="0.55" layer="21" rot="R90" align="center">H1-35</text>
-<text x="297.29" y="251.98" size="0.55" layer="21" rot="R90" align="center">H1-37</text>
-<text x="297.29" y="253.98" size="0.55" layer="21" rot="R90" align="center">H1-39</text>
-<text x="297.29" y="255.98" size="0.55" layer="21" rot="R90" align="center">H1-41</text>
-<text x="297.29" y="257.98" size="0.55" layer="21" rot="R90" align="center">H1-43</text>
-<text x="297.29" y="259.98" size="0.55" layer="21" rot="R90" align="center">H1-45</text>
-<text x="297.29" y="261.98" size="0.55" layer="21" rot="R90" align="center">H1-47</text>
-<text x="297.29" y="263.98" size="0.55" layer="21" rot="R90" align="center">H1-49</text>
-<text x="297.29" y="265.98" size="0.55" layer="21" rot="R90" align="center">H1-51</text>
-<text x="297.29" y="267.98" size="0.55" layer="21" rot="R90" align="center">UN01</text>
-<text x="297.29" y="269.98" size="0.55" layer="21" rot="R90" align="center">UN03</text>
-<text x="297.29" y="271.98" size="0.55" layer="21" rot="R90" align="center">UN05</text>
-<text x="297.29" y="273.98" size="0.55" layer="21" rot="R90" align="center">UN07</text>
-<text x="195.38" y="278.99" size="0.55" layer="21" align="center">H1-2</text>
-<text x="195.38" y="280.99" size="0.55" layer="21" align="center">H2-1</text>
-<text x="195.4" y="176.45" size="0.55" layer="21" align="center">H1-2</text>
-<text x="195.4" y="178.45" size="0.55" layer="21" align="center">H2-1</text>
-<text x="87.94" y="176.25" size="0.55" layer="21" align="center">H1-2</text>
-<text x="87.94" y="178.25" size="0.55" layer="21" align="center">H2-1</text>
-<text x="57.03" y="211.64" size="0.55" layer="21" rot="R90" align="center">H1-2</text>
-<text x="55.03" y="211.64" size="0.55" layer="21" rot="R90" align="center">H2-1</text>
-<text x="292.72" y="212.69" size="0.55" layer="21" rot="R90" align="center">H1-2</text>
-<text x="290.72" y="212.69" size="0.55" layer="21" rot="R90" align="center">H2-1</text>
-<text x="259.38" y="278.96" size="0.55" layer="21" align="center">UN08</text>
-<text x="259.38" y="280.96" size="0.55" layer="21" align="center">UN15</text>
-<text x="259.22" y="176.47" size="0.55" layer="21" align="center">UN08</text>
-<text x="259.24" y="178.4" size="0.55" layer="21" align="center">UN15</text>
-<text x="151.83" y="176.35" size="0.55" layer="21" align="center">UN08</text>
-<text x="151.83" y="178.35" size="0.55" layer="21" align="center">UN15</text>
-<text x="292.77" y="277.11" size="0.55" layer="21" rot="R90" align="center">UN08</text>
-<text x="290.77" y="277.11" size="0.55" layer="21" rot="R90" align="center">UN15</text>
-<text x="57.07" y="276.14" size="0.55" layer="21" rot="R90" align="center">UN08</text>
-<text x="55.07" y="276.14" size="0.55" layer="21" rot="R90" align="center">UN15</text>
+<text x="61.66" y="214.56" size="0.55" layer="21" rot="R90" align="center">H1-1</text>
+<text x="61.66" y="224.56" size="0.55" layer="21" rot="R90" align="center">H1-11</text>
+<text x="61.66" y="216.56" size="0.55" layer="21" rot="R90" align="center">H1-3</text>
+<text x="61.66" y="218.56" size="0.55" layer="21" rot="R90" align="center">H1-5</text>
+<text x="61.66" y="220.56" size="0.55" layer="21" rot="R90" align="center">H1-7</text>
+<text x="61.66" y="222.56" size="0.55" layer="21" rot="R90" align="center">H1-9</text>
+<text x="61.66" y="226.56" size="0.55" layer="21" rot="R90" align="center">H1-13</text>
+<text x="61.66" y="228.56" size="0.55" layer="21" rot="R90" align="center">H1-15</text>
+<text x="61.66" y="232.56" size="0.55" layer="21" rot="R90" align="center">H1-19</text>
+<text x="61.66" y="230.56" size="0.55" layer="21" rot="R90" align="center">H1-17</text>
+<text x="61.66" y="234.56" size="0.55" layer="21" rot="R90" align="center">H1-21</text>
+<text x="61.66" y="236.56" size="0.55" layer="21" rot="R90" align="center">H1-23</text>
+<text x="61.66" y="238.56" size="0.55" layer="21" rot="R90" align="center">H1-25</text>
+<text x="61.66" y="240.56" size="0.55" layer="21" rot="R90" align="center">H1-27</text>
+<text x="61.66" y="242.56" size="0.55" layer="21" rot="R90" align="center">H1-29</text>
+<text x="61.66" y="244.56" size="0.55" layer="21" rot="R90" align="center">H1-31</text>
+<text x="61.66" y="246.56" size="0.55" layer="21" rot="R90" align="center">H1-33</text>
+<text x="61.66" y="248.56" size="0.55" layer="21" rot="R90" align="center">H1-35</text>
+<text x="61.66" y="250.56" size="0.55" layer="21" rot="R90" align="center">H1-37</text>
+<text x="61.66" y="252.56" size="0.55" layer="21" rot="R90" align="center">H1-39</text>
+<text x="61.66" y="254.56" size="0.55" layer="21" rot="R90" align="center">H1-41</text>
+<text x="61.66" y="256.56" size="0.55" layer="21" rot="R90" align="center">H1-43</text>
+<text x="61.66" y="258.56" size="0.55" layer="21" rot="R90" align="center">H1-45</text>
+<text x="61.66" y="260.56" size="0.55" layer="21" rot="R90" align="center">H1-47</text>
+<text x="61.66" y="262.56" size="0.55" layer="21" rot="R90" align="center">H1-49</text>
+<text x="61.66" y="264.56" size="0.55" layer="21" rot="R90" align="center">H1-51</text>
+<text x="61.66" y="266.56" size="0.55" layer="21" rot="R90" align="center">UN01</text>
+<text x="61.66" y="268.56" size="0.55" layer="21" rot="R90" align="center">UN03</text>
+<text x="61.66" y="270.56" size="0.55" layer="21" rot="R90" align="center">UN05</text>
+<text x="61.66" y="272.56" size="0.55" layer="21" rot="R90" align="center">UN07</text>
+<text x="297.51" y="214.79" size="0.55" layer="21" rot="R90" align="center">H1-1</text>
+<text x="297.51" y="224.79" size="0.55" layer="21" rot="R90" align="center">H1-11</text>
+<text x="297.51" y="216.79" size="0.55" layer="21" rot="R90" align="center">H1-3</text>
+<text x="297.51" y="218.79" size="0.55" layer="21" rot="R90" align="center">H1-5</text>
+<text x="297.51" y="220.79" size="0.55" layer="21" rot="R90" align="center">H1-7</text>
+<text x="297.51" y="222.79" size="0.55" layer="21" rot="R90" align="center">H1-9</text>
+<text x="297.51" y="226.79" size="0.55" layer="21" rot="R90" align="center">H1-13</text>
+<text x="297.51" y="228.79" size="0.55" layer="21" rot="R90" align="center">H1-15</text>
+<text x="297.51" y="232.79" size="0.55" layer="21" rot="R90" align="center">H1-19</text>
+<text x="297.51" y="230.79" size="0.55" layer="21" rot="R90" align="center">H1-17</text>
+<text x="297.51" y="234.79" size="0.55" layer="21" rot="R90" align="center">H1-21</text>
+<text x="297.51" y="236.79" size="0.55" layer="21" rot="R90" align="center">H1-23</text>
+<text x="297.51" y="238.79" size="0.55" layer="21" rot="R90" align="center">H1-25</text>
+<text x="297.51" y="240.79" size="0.55" layer="21" rot="R90" align="center">H1-27</text>
+<text x="297.51" y="242.79" size="0.55" layer="21" rot="R90" align="center">H1-29</text>
+<text x="297.51" y="244.79" size="0.55" layer="21" rot="R90" align="center">H1-31</text>
+<text x="297.51" y="246.79" size="0.55" layer="21" rot="R90" align="center">H1-33</text>
+<text x="297.51" y="248.79" size="0.55" layer="21" rot="R90" align="center">H1-35</text>
+<text x="297.51" y="250.79" size="0.55" layer="21" rot="R90" align="center">H1-37</text>
+<text x="297.51" y="252.79" size="0.55" layer="21" rot="R90" align="center">H1-39</text>
+<text x="297.51" y="254.79" size="0.55" layer="21" rot="R90" align="center">H1-41</text>
+<text x="297.51" y="256.79" size="0.55" layer="21" rot="R90" align="center">H1-43</text>
+<text x="297.51" y="258.79" size="0.55" layer="21" rot="R90" align="center">H1-45</text>
+<text x="297.51" y="260.79" size="0.55" layer="21" rot="R90" align="center">H1-47</text>
+<text x="297.51" y="262.79" size="0.55" layer="21" rot="R90" align="center">H1-49</text>
+<text x="297.51" y="264.79" size="0.55" layer="21" rot="R90" align="center">H1-51</text>
+<text x="297.51" y="266.79" size="0.55" layer="21" rot="R90" align="center">UN01</text>
+<text x="297.51" y="268.79" size="0.55" layer="21" rot="R90" align="center">UN03</text>
+<text x="297.51" y="270.79" size="0.55" layer="21" rot="R90" align="center">UN05</text>
+<text x="297.51" y="272.79" size="0.55" layer="21" rot="R90" align="center">UN07</text>
 </plain>
 <libraries>
 <library name="con-banana">
@@ -4642,31 +4622,6 @@
 <description>MOUNTING PAD 3.2 mm, round</description>
 <packageinstances>
 <packageinstance name="3,2-PAD"/>
-</packageinstances>
-</package3d>
-</packages3d>
-</library>
-<library name="testpad" urn="urn:adsk.eagle:library:385">
-<description>&lt;b&gt;Test Pins/Pads&lt;/b&gt;&lt;p&gt;
-Cream on SMD OFF.&lt;br&gt;
-new: Attribute TP_SIGNAL_NAME&lt;br&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="P1-13" urn="urn:adsk.eagle:footprint:27902/1" library_version="3">
-<description>&lt;b&gt;TEST PAD&lt;/b&gt;</description>
-<circle x="0" y="0" radius="0.762" width="0.1524" layer="51"/>
-<pad name="TP" x="0" y="0" drill="1.3208" diameter="2.159" shape="octagon"/>
-<text x="-1.016" y="1.27" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-<text x="0" y="0" size="0.0254" layer="27">&gt;VALUE</text>
-<text x="-1.27" y="-2.54" size="1" layer="37">&gt;TP_SIGNAL_NAME</text>
-<rectangle x1="-0.3302" y1="-0.3302" x2="0.3302" y2="0.3302" layer="51"/>
-</package>
-</packages>
-<packages3d>
-<package3d name="P1-13" urn="urn:adsk.eagle:package:27946/1" type="box" library_version="3">
-<description>TEST PAD</description>
-<packageinstances>
-<packageinstance name="P1-13"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -4983,78 +4938,6 @@ design rules under a new name.</description>
 </element>
 <element name="H22" library="holes" library_urn="urn:adsk.eagle:library:237" package="3,2-PAD" package3d_urn="urn:adsk.eagle:package:14282/1" value="MOUNT-PAD-ROUND3.2" x="170" y="210" smashed="yes">
 <attribute name="POPULARITY" value="4" x="170" y="210" size="2" layer="27" font="vector" display="off"/>
-</element>
-<element name="TP1" library="testpad" library_urn="urn:adsk.eagle:library:385" package="P1-13" package3d_urn="urn:adsk.eagle:package:27946/1" value="PTR1PAD1-13" x="86" y="276" smashed="yes">
-<attribute name="NAME" x="84.984" y="277.27" size="1.27" layer="25" ratio="10"/>
-<attribute name="POPULARITY" value="2" x="86" y="276" size="0.55" layer="27" display="off"/>
-<attribute name="TP_SIGNAL_NAME" value="" x="86" y="276" size="0.55" layer="27" display="off"/>
-<attribute name="VALUE" x="86" y="276" size="0.0254" layer="27"/>
-</element>
-<element name="TP2" library="testpad" library_urn="urn:adsk.eagle:library:385" package="P1-13" package3d_urn="urn:adsk.eagle:package:27946/1" value="PTR1PAD1-13" x="154.08" y="276.06" smashed="yes">
-<attribute name="NAME" x="153.064" y="277.33" size="1.27" layer="25" ratio="10"/>
-<attribute name="POPULARITY" value="2" x="154.08" y="276.06" size="0.55" layer="27" display="off"/>
-<attribute name="TP_SIGNAL_NAME" value="" x="152.81" y="273.52" size="1" layer="37"/>
-<attribute name="VALUE" x="154.08" y="276.06" size="0.0254" layer="27"/>
-</element>
-<element name="TP3" library="testpad" library_urn="urn:adsk.eagle:library:385" package="P1-13" package3d_urn="urn:adsk.eagle:package:27946/1" value="PTR1PAD1-13" x="86" y="174" smashed="yes">
-<attribute name="NAME" x="84.984" y="175.27" size="1.27" layer="25" ratio="10"/>
-<attribute name="POPULARITY" value="2" x="86" y="174" size="0.55" layer="27" display="off"/>
-<attribute name="TP_SIGNAL_NAME" value="" x="84.73" y="171.46" size="1" layer="37"/>
-<attribute name="VALUE" x="86" y="174" size="0.0254" layer="27"/>
-</element>
-<element name="TP4" library="testpad" library_urn="urn:adsk.eagle:library:385" package="P1-13" package3d_urn="urn:adsk.eagle:package:27946/1" value="PTR1PAD1-13" x="154" y="174" smashed="yes">
-<attribute name="NAME" x="152.984" y="175.27" size="1.27" layer="25" ratio="10"/>
-<attribute name="POPULARITY" value="2" x="154" y="174" size="0.55" layer="27" display="off"/>
-<attribute name="TP_SIGNAL_NAME" value="" x="152.73" y="171.46" size="1" layer="37"/>
-<attribute name="VALUE" x="154" y="174" size="0.0254" layer="27"/>
-</element>
-<element name="TP5" library="testpad" library_urn="urn:adsk.eagle:library:385" package="P1-13" package3d_urn="urn:adsk.eagle:package:27946/1" value="PTR1PAD1-13" x="194" y="174" smashed="yes">
-<attribute name="NAME" x="192.984" y="175.27" size="1.27" layer="25" ratio="10"/>
-<attribute name="POPULARITY" value="2" x="194" y="174" size="0.55" layer="27" display="off"/>
-<attribute name="TP_SIGNAL_NAME" value="" x="192.73" y="171.46" size="1" layer="37"/>
-<attribute name="VALUE" x="194" y="174" size="0.0254" layer="27"/>
-</element>
-<element name="TP6" library="testpad" library_urn="urn:adsk.eagle:library:385" package="P1-13" package3d_urn="urn:adsk.eagle:package:27946/1" value="PTR1PAD1-13" x="261" y="174" smashed="yes">
-<attribute name="NAME" x="259.984" y="175.27" size="1.27" layer="25" ratio="10"/>
-<attribute name="POPULARITY" value="2" x="261" y="174" size="0.55" layer="27" display="off"/>
-<attribute name="TP_SIGNAL_NAME" value="" x="259.73" y="171.46" size="1" layer="37"/>
-<attribute name="VALUE" x="261" y="174" size="0.0254" layer="27"/>
-</element>
-<element name="TP7" library="testpad" library_urn="urn:adsk.eagle:library:385" package="P1-13" package3d_urn="urn:adsk.eagle:package:27946/1" value="PTR1PAD1-13" x="261" y="276" smashed="yes">
-<attribute name="NAME" x="259.984" y="277.27" size="1.27" layer="25" ratio="10"/>
-<attribute name="POPULARITY" value="2" x="261" y="276" size="0.55" layer="27" display="off"/>
-<attribute name="TP_SIGNAL_NAME" value="" x="259.73" y="273.46" size="1" layer="37"/>
-<attribute name="VALUE" x="261" y="276" size="0.0254" layer="27"/>
-</element>
-<element name="TP8" library="testpad" library_urn="urn:adsk.eagle:library:385" package="P1-13" package3d_urn="urn:adsk.eagle:package:27946/1" value="PTR1PAD1-13" x="193.91" y="276.1" smashed="yes">
-<attribute name="NAME" x="192.894" y="277.37" size="1.27" layer="25" ratio="10"/>
-<attribute name="POPULARITY" value="2" x="193.91" y="276.1" size="0.55" layer="27" display="off"/>
-<attribute name="TP_SIGNAL_NAME" value="" x="192.64" y="273.56" size="1" layer="37"/>
-<attribute name="VALUE" x="193.91" y="276.1" size="0.0254" layer="27"/>
-</element>
-<element name="TP9" library="testpad" library_urn="urn:adsk.eagle:library:385" package="P1-13" package3d_urn="urn:adsk.eagle:package:27946/1" value="PTR1PAD1-13" x="295" y="211" smashed="yes">
-<attribute name="NAME" x="293.984" y="212.27" size="1.27" layer="25" ratio="10"/>
-<attribute name="POPULARITY" value="2" x="295" y="226" size="0.55" layer="27" display="off"/>
-<attribute name="TP_SIGNAL_NAME" value="" x="293.73" y="208.46" size="1" layer="37"/>
-<attribute name="VALUE" x="295" y="211" size="0.0254" layer="27"/>
-</element>
-<element name="TP10" library="testpad" library_urn="urn:adsk.eagle:library:385" package="P1-13" package3d_urn="urn:adsk.eagle:package:27946/1" value="PTR1PAD1-13" x="60" y="210" smashed="yes">
-<attribute name="NAME" x="58.984" y="211.27" size="1.27" layer="25" ratio="10"/>
-<attribute name="POPULARITY" value="2" x="60" y="205" size="0.55" layer="27" display="off"/>
-<attribute name="TP_SIGNAL_NAME" value="" x="58.73" y="207.46" size="1" layer="37"/>
-<attribute name="VALUE" x="60" y="210" size="0.0254" layer="27"/>
-</element>
-<element name="TP11" library="testpad" library_urn="urn:adsk.eagle:library:385" package="P1-13" package3d_urn="urn:adsk.eagle:package:27946/1" value="PTR1PAD1-13" x="296" y="278" smashed="yes">
-<attribute name="NAME" x="294.984" y="279.27" size="1.27" layer="25" ratio="10"/>
-<attribute name="POPULARITY" value="2" x="296" y="278" size="0.55" layer="27" display="off"/>
-<attribute name="TP_SIGNAL_NAME" value="" x="294.73" y="275.46" size="1" layer="37"/>
-<attribute name="VALUE" x="296" y="278" size="0.0254" layer="27"/>
-</element>
-<element name="TP12" library="testpad" library_urn="urn:adsk.eagle:library:385" package="P1-13" package3d_urn="urn:adsk.eagle:package:27946/1" value="PTR1PAD1-13" x="60" y="278" smashed="yes">
-<attribute name="NAME" x="58.984" y="279.27" size="1.27" layer="25" ratio="10"/>
-<attribute name="POPULARITY" value="2" x="60" y="268" size="0.55" layer="27" display="off"/>
-<attribute name="TP_SIGNAL_NAME" value="" x="58.73" y="275.46" size="1" layer="37"/>
-<attribute name="VALUE" x="60" y="278" size="0.0254" layer="27"/>
 </element>
 </elements>
 <signals>
@@ -7917,18 +7800,6 @@ design rules under a new name.</description>
 <vertex x="320" y="86"/>
 <vertex x="30" y="86"/>
 </polygon>
-<contactref element="TP1" pad="TP"/>
-<contactref element="TP2" pad="TP"/>
-<contactref element="TP3" pad="TP"/>
-<contactref element="TP4" pad="TP"/>
-<contactref element="TP5" pad="TP"/>
-<contactref element="TP6" pad="TP"/>
-<contactref element="TP7" pad="TP"/>
-<contactref element="TP8" pad="TP"/>
-<contactref element="TP9" pad="TP"/>
-<contactref element="TP10" pad="TP"/>
-<contactref element="TP11" pad="TP"/>
-<contactref element="TP12" pad="TP"/>
 </signal>
 <signal name="H2-10">
 <contactref element="J1" pad="P$5"/>

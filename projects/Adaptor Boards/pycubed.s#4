@@ -2317,10 +2317,6 @@ W = angled&lt;p&gt;
 <part name="BOTTOMLEFT" library="con-lstb" library_urn="urn:adsk.eagle:library:162" deviceset="MA05-1" device="" package3d_urn="urn:adsk.eagle:package:8332/1"/>
 <part name="BOTTOMRIGHT" library="con-lstb" library_urn="urn:adsk.eagle:library:162" deviceset="MA05-1" device="" package3d_urn="urn:adsk.eagle:package:8332/1"/>
 <part name="TOPLEFT" library="con-lstb" library_urn="urn:adsk.eagle:library:162" deviceset="MA09-1" device="" package3d_urn="urn:adsk.eagle:package:8350/1"/>
-<part name="H5" library="holes" library_urn="urn:adsk.eagle:library:237" deviceset="MOUNT-PAD-ROUND" device="3.2" package3d_urn="urn:adsk.eagle:package:14282/1"/>
-<part name="H6" library="holes" library_urn="urn:adsk.eagle:library:237" deviceset="MOUNT-PAD-ROUND" device="3.2" package3d_urn="urn:adsk.eagle:package:14282/1"/>
-<part name="H7" library="holes" library_urn="urn:adsk.eagle:library:237" deviceset="MOUNT-PAD-ROUND" device="3.2" package3d_urn="urn:adsk.eagle:package:14282/1"/>
-<part name="H8" library="holes" library_urn="urn:adsk.eagle:library:237" deviceset="MOUNT-PAD-ROUND" device="3.2" package3d_urn="urn:adsk.eagle:package:14282/1"/>
 </parts>
 <sheets>
 <sheet>
@@ -2362,22 +2358,6 @@ W = angled&lt;p&gt;
 <instance part="TOPLEFT" gate="1" x="-58.42" y="81.28" smashed="yes" rot="R270">
 <attribute name="VALUE" x="-73.66" y="82.55" size="1.778" layer="96" rot="R270"/>
 <attribute name="NAME" x="-57.15" y="84.582" size="1.778" layer="95"/>
-</instance>
-<instance part="H5" gate="G$1" x="233.68" y="-58.42" smashed="yes">
-<attribute name="NAME" x="236.474" y="-57.8358" size="1.778" layer="95"/>
-<attribute name="VALUE" x="236.474" y="-60.8838" size="1.778" layer="96"/>
-</instance>
-<instance part="H6" gate="G$1" x="233.68" y="-72.39" smashed="yes">
-<attribute name="NAME" x="236.474" y="-71.8058" size="1.778" layer="95"/>
-<attribute name="VALUE" x="236.474" y="-74.8538" size="1.778" layer="96"/>
-</instance>
-<instance part="H7" gate="G$1" x="232.41" y="-87.63" smashed="yes">
-<attribute name="NAME" x="235.204" y="-87.0458" size="1.778" layer="95"/>
-<attribute name="VALUE" x="235.204" y="-90.0938" size="1.778" layer="96"/>
-</instance>
-<instance part="H8" gate="G$1" x="232.41" y="-102.87" smashed="yes">
-<attribute name="NAME" x="235.204" y="-102.2858" size="1.778" layer="95"/>
-<attribute name="VALUE" x="235.204" y="-105.3338" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
