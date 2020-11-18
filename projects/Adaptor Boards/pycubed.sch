@@ -2429,11 +2429,6 @@ W = angled&lt;p&gt;
 <wire x1="199.39" y1="36.83" x2="205.74" y2="36.83" width="0.1524" layer="91"/>
 <label x="205.74" y="36.83" size="1.778" layer="95" xref="yes"/>
 </segment>
-<segment>
-<pinref part="BOTTOMLEFT" gate="G$1" pin="1"/>
-<wire x1="-40.64" y1="22.86" x2="-38.1" y2="22.86" width="0.1524" layer="91"/>
-<label x="-38.1" y="22.86" size="1.778" layer="95" xref="yes"/>
-</segment>
 </net>
 <net name="GND4" class="0">
 <segment>
@@ -2482,10 +2477,6 @@ W = angled&lt;p&gt;
 </segment>
 </net>
 <net name="GND8" class="0">
-<segment>
-<pinref part="J1" gate="G$1" pin="C16"/>
-<wire x1="179.07" y1="82.55" x2="179.07" y2="80.01" width="0.1524" layer="91"/>
-</segment>
 <segment>
 <pinref part="J1" gate="G$1" pin="D16"/>
 <wire x1="199.39" y1="82.55" x2="207.01" y2="82.55" width="0.1524" layer="91"/>
@@ -2777,6 +2768,18 @@ W = angled&lt;p&gt;
 <pinref part="J1" gate="G$1" pin="A16"/>
 <wire x1="151.13" y1="82.55" x2="127" y2="82.55" width="0.1524" layer="91"/>
 <label x="127" y="83" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="GNDJTAG" class="0">
+<segment>
+<pinref part="BOTTOMLEFT" gate="G$1" pin="1"/>
+<wire x1="-40.64" y1="22.86" x2="-38.1" y2="22.86" width="0.1524" layer="91"/>
+<label x="-38.1" y="22.86" size="1.778" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="J1" gate="G$1" pin="A25"/>
+<wire x1="151.13" y1="128.27" x2="127" y2="128.27" width="0.1524" layer="91"/>
+<label x="127" y="128.27" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 </nets>

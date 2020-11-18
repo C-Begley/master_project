@@ -154,8 +154,11 @@
 <pad name="P$1" x="0" y="0" drill="6" diameter="9"/>
 <rectangle x1="-3" y1="5" x2="3" y2="9" layer="1"/>
 <rectangle x1="-1" y1="4" x2="1" y2="5" layer="1"/>
-<rectangle x1="-3.1" y1="4.9" x2="3.1" y2="9.1" layer="39"/>
-<rectangle x1="-3.1" y1="4.9" x2="3.1" y2="9.1" layer="29"/>
+<rectangle x1="-3" y1="9" x2="3" y2="12" layer="1"/>
+<rectangle x1="-4" y1="5" x2="-3" y2="12" layer="1"/>
+<rectangle x1="3" y1="5" x2="4" y2="12" layer="1"/>
+<rectangle x1="-4.1" y1="4.9" x2="4.1" y2="12.1" layer="41"/>
+<rectangle x1="-4.1" y1="4.9" x2="4.1" y2="12.1" layer="29"/>
 </package>
 </packages>
 <symbols>

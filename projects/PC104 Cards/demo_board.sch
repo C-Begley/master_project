@@ -7123,6 +7123,11 @@ Source: &lt;a href="https://4donline.ihs.com/images/VipMasterIC/IC/ESCH/ESCH-S-A
 <wire x1="486.41" y1="80.01" x2="527.05" y2="80.01" width="0.1524" layer="91"/>
 <label x="527.05" y="80.01" size="1.778" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="R4" gate="G$1" pin="2"/>
+<wire x1="317.5" y1="-139.7" x2="309.88" y2="-139.7" width="0.1524" layer="91"/>
+<label x="309.88" y="-139.7" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="5V" class="0">
 <segment>
@@ -7210,11 +7215,6 @@ Source: &lt;a href="https://4donline.ihs.com/images/VipMasterIC/IC/ESCH/ESCH-S-A
 <pinref part="J2" gate="G$1" pin="D11"/>
 <wire x1="506.73" y1="67.31" x2="514.35" y2="67.31" width="0.1524" layer="91"/>
 <label x="514.35" y="67.31" size="1.778" layer="95" xref="yes"/>
-</segment>
-<segment>
-<pinref part="U2" gate="G$1" pin="GND3"/>
-<wire x1="373.38" y1="91.44" x2="401.32" y2="91.44" width="0.1524" layer="91"/>
-<label x="401.32" y="91.44" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="12V" class="0">
@@ -7305,9 +7305,13 @@ Source: &lt;a href="https://4donline.ihs.com/images/VipMasterIC/IC/ESCH/ESCH-S-A
 <label x="312.42" y="55.88" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<pinref part="R4" gate="G$1" pin="2"/>
-<wire x1="317.5" y1="-139.7" x2="309.88" y2="-139.7" width="0.1524" layer="91"/>
-<label x="309.88" y="-139.7" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="R5" gate="G$1" pin="1"/>
+<wire x1="327.66" y1="-139.7" x2="332.74" y2="-139.7" width="0.1524" layer="91"/>
+<pinref part="R4" gate="G$1" pin="1"/>
+<wire x1="332.74" y1="-139.7" x2="340.36" y2="-139.7" width="0.1524" layer="91"/>
+<wire x1="332.74" y1="-139.7" x2="332.74" y2="-134.62" width="0.1524" layer="91"/>
+<junction x="332.74" y="-139.7"/>
+<label x="332.74" y="-134.62" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 </net>
 <net name="SDA" class="0">
@@ -7317,14 +7321,14 @@ Source: &lt;a href="https://4donline.ihs.com/images/VipMasterIC/IC/ESCH/ESCH-S-A
 <label x="383.54" y="78.74" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="J2" gate="G$1" pin="A13"/>
-<wire x1="458.47" y1="77.47" x2="435.356" y2="77.47" width="0.1524" layer="91"/>
-<label x="435.102" y="77.47" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-<segment>
 <pinref part="U2" gate="G$1" pin="IO16"/>
 <wire x1="373.38" y1="63.5" x2="388.62" y2="63.5" width="0.1524" layer="91"/>
 <label x="388.62" y="63.5" size="1.27" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="J2" gate="G$1" pin="A14"/>
+<wire x1="458.47" y1="82.55" x2="435.864" y2="82.55" width="0.1524" layer="91"/>
+<label x="435.864" y="82.804" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="TX" class="0">
@@ -7392,14 +7396,14 @@ Source: &lt;a href="https://4donline.ihs.com/images/VipMasterIC/IC/ESCH/ESCH-S-A
 <label x="383.54" y="86.36" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="J2" gate="G$1" pin="A14"/>
-<wire x1="458.47" y1="82.55" x2="435.864" y2="82.55" width="0.1524" layer="91"/>
-<label x="435.864" y="82.804" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-<segment>
 <pinref part="U2" gate="G$1" pin="IO17"/>
 <wire x1="373.38" y1="66.04" x2="388.62" y2="66.04" width="0.1524" layer="91"/>
 <label x="388.62" y="66.04" size="1.27" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="J2" gate="G$1" pin="A13"/>
+<wire x1="458.47" y1="77.47" x2="435.356" y2="77.47" width="0.1524" layer="91"/>
+<label x="435.102" y="77.47" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="MISO" class="0">
@@ -7414,25 +7418,11 @@ Source: &lt;a href="https://4donline.ihs.com/images/VipMasterIC/IC/ESCH/ESCH-S-A
 <label x="434.34" y="31.75" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="ADC2" class="0">
-<segment>
-<pinref part="U2" gate="G$1" pin="IO4"/>
-<wire x1="373.38" y1="60.96" x2="396.24" y2="60.96" width="0.1524" layer="91"/>
-<label x="396.24" y="60.96" size="1.27" layer="95" xref="yes"/>
-</segment>
-</net>
 <net name="3V32" class="0">
 <segment>
 <pinref part="U2" gate="G$1" pin="3V3"/>
 <wire x1="332.74" y1="91.44" x2="325.12" y2="91.44" width="0.1524" layer="91"/>
 <label x="325.12" y="91.44" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
-<net name="EN" class="0">
-<segment>
-<pinref part="U2" gate="G$1" pin="EN"/>
-<wire x1="332.74" y1="88.9" x2="330.2" y2="88.9" width="0.1524" layer="91"/>
-<label x="330.2" y="88.9" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="GPIO3" class="0">
@@ -7513,6 +7503,11 @@ Source: &lt;a href="https://4donline.ihs.com/images/VipMasterIC/IC/ESCH/ESCH-S-A
 <wire x1="458.47" y1="118.11" x2="435.864" y2="118.11" width="0.1524" layer="91"/>
 <label x="435.61" y="118.11" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="IO4"/>
+<wire x1="373.38" y1="60.96" x2="396.24" y2="60.96" width="0.1524" layer="91"/>
+<label x="396.24" y="60.96" size="1.27" layer="95" xref="yes"/>
+</segment>
 </net>
 <net name="GPIO" class="0">
 <segment>
@@ -7521,9 +7516,9 @@ Source: &lt;a href="https://4donline.ihs.com/images/VipMasterIC/IC/ESCH/ESCH-S-A
 <label x="434.34" y="36.83" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U2" gate="G$1" pin="IO5"/>
-<wire x1="373.38" y1="68.58" x2="375.92" y2="68.58" width="0.1524" layer="91"/>
-<label x="375.92" y="68.58" size="1.27" layer="95" xref="yes"/>
+<pinref part="U2" gate="G$1" pin="EN"/>
+<wire x1="332.74" y1="88.9" x2="330.2" y2="88.9" width="0.1524" layer="91"/>
+<label x="330.2" y="88.9" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -7583,17 +7578,6 @@ Source: &lt;a href="https://4donline.ihs.com/images/VipMasterIC/IC/ESCH/ESCH-S-A
 <label x="294.64" y="66.04" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="N$2" class="0">
-<segment>
-<pinref part="R5" gate="G$1" pin="1"/>
-<wire x1="327.66" y1="-139.7" x2="332.74" y2="-139.7" width="0.1524" layer="91"/>
-<pinref part="R4" gate="G$1" pin="1"/>
-<wire x1="332.74" y1="-139.7" x2="340.36" y2="-139.7" width="0.1524" layer="91"/>
-<wire x1="332.74" y1="-139.7" x2="332.74" y2="-134.62" width="0.1524" layer="91"/>
-<junction x="332.74" y="-139.7"/>
-<label x="332.74" y="-134.62" size="1.27" layer="95" rot="R90" xref="yes"/>
-</segment>
-</net>
 <net name="SW1" class="0">
 <segment>
 <pinref part="S2" gate="G$1" pin="COM"/>
@@ -7628,6 +7612,14 @@ Source: &lt;a href="https://4donline.ihs.com/images/VipMasterIC/IC/ESCH/ESCH-S-A
 <pinref part="U2" gate="G$1" pin="IO0"/>
 <wire x1="373.38" y1="58.42" x2="381" y2="58.42" width="0.1524" layer="91"/>
 <label x="381" y="58.42" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="DONTCONNECT" class="0">
+<segment>
+<pinref part="U2" gate="G$1" pin="GND3"/>
+<wire x1="373.38" y1="91.44" x2="378.46" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="378.46" y1="91.44" x2="378.46" y2="93.98" width="0.1524" layer="91"/>
+<label x="378.46" y="93.98" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
