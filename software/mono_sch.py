@@ -1,7 +1,7 @@
 import json
 import time
 
-PERIOD = 1  #Update with scheduling frequency of pycubed
+CLOCK_STEP = 1  #Update with scheduling frequency of pycubed
 
 def lcm_2(x, y):
    if x > y:
@@ -32,26 +32,23 @@ def possible_schedule(tasks):
     u_b = n*(2**(1/n) - 1)
     u_t = 0
     for task in tasks:
-        u_t += tasks[task]["time"]/tasks[task]["period"]
+        u_t += tasks[task]["duration"]/tasks[task]["period"]
         if (u_t > u_b) or (1 <= u_t):
             return False
     return True
 
-def schedule_order(tasks):
+def schedule_order(tasks, step=CLOCK_STEP):
     periods = sorted([tasks[task]["period"] for task in tasks])
     sch_period = lcm_arr(periods)
     mock_time = 0
     task_pattern = []
-    tasks_list = sorted(tasks.items(), key=lambda kv: kv[1]["period"])
-    unscheduled = [x[0] for x in tasks_list]
-    initial = []
     next_deadline = {}
     scheduled = []
+    unscheduled = []
 
     for task in tasks:
         unscheduled.append(task)
         next_deadline[task] = tasks[task]["period"]
-
     while mock_time < sch_period:
             for task in scheduled:
                 if mock_time >= next_deadline[task]:
@@ -63,16 +60,16 @@ def schedule_order(tasks):
                 next_t= unscheduled[0]
                 del unscheduled[0]
                 task_pattern.append((next_t, mock_time))
-                mock_time += tasks[next_t]["time"]
+                mock_time += tasks[next_t]["duration"]
                 scheduled.append(next_t)
             else:
-                mock_time += PERIOD
+                mock_time += step
     return (task_pattern, sch_period)
 
-sample = json.loads('{"coms":{"time":10, "period":30}')
-samples = json.loads('{"P2":{"time":1000, "period":8000}, "P1":{"time":2000, "period":5000}, "P3":{"time":2000, "period":10000}}')
+sample = json.loads('{"coms":{"duration":10, "period":30}')
+samples = json.loads('{"P2":{"duration":1000, "period":8000}, "P1":{"duration":2000, "period":5000}, "P3":{"duration":2000, "period":10000}}')
 
-bad_samples = json.loads('{"coms":{"time":10, "period":30}, "payload":{"time":15, "period":20} }')
+bad_samples = json.loads('{"coms":{"duration":10, "period":30}, "payload":{"duration":15, "period":20} }')
 
 def run_schedule(task_pattern, sch_period):
     t = time.monotonic_ns()
@@ -92,3 +89,4 @@ def run_schedule(task_pattern, sch_period):
 
 
 #import mono_sch as m; print(m.samples, end="\n \n \n"); sch = m.schedule_order(m.samples); print(sch, end="\n \n \n"); m.run_schedule(sch[0], sch[1])
+#import mono_sch as m; print(m.sample, end="\n \n \n"); sch = m.schedule_order(m.sample);
