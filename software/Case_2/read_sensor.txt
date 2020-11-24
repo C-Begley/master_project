@@ -10,11 +10,11 @@
                                "data" : "",
                                "recieve": true,
                                "data_size" : 2,
-                               "pass_through" : true,
-                               "pass_location" : "Coms"
+                               "pass_through" : false,
+                               "pass_location" : ""
                 },
                 "connection_settings" : {
-                                         "front_data_padding" : 1,
+                                         "front_data_padding" : 0,
                                          "back_data_padding" : 0,
                                          "start": true,
                                          "start_value": 0,
@@ -22,9 +22,9 @@
                                          "end_value": 0
                 },
                 "load_settings" : {
-                                   "load_from_buf": true,
+                                   "load_from_buf": false,
                                    "load_address_start" : 0,
-                                   "load_address_end" : 1,
+                                   "load_address_end" : 0,
                                    "load_from_file": false,
                                    "load_file" : "",
                                    "load_line" : false,
@@ -34,8 +34,8 @@
                 "store_settings":{
                                   "store_to_buf": true,
                                   "store_address" : 0 ,
-                                  "store_to_file": true,
-                                  "store_file" : "test.txt",
+                                  "store_to_file": false,
+                                  "store_file" : "",
                                   "file_append" : true
                  },
                  "pins":{

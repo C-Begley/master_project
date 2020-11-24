@@ -4,6 +4,8 @@ import board
 import time
 import os
 
+BUFFERSIZE = 5
+BUFFER = bytearray(BUFFERSIZE)
 
 #Reads data and then writes
 def Com_I2C(addr, data = None, data_size= None, front_data_padding = 0, back_data_padding = 0,  start= False, start_value = 0, end = False, end_value = 0):
@@ -50,9 +52,8 @@ def run_I2C(task, devices):
             )
         #print(res)
         if res != None:
-            print(res)
             if task["connection"]["pass_through"]:
-                res = Com_I2C(devices[task["connection"]["pass_location"]]["I2C"],
+                Com_I2C(devices[task["connection"]["pass_location"]]["I2C"],
                 data = res,
                 front_data_padding = task["connection_settings"]["front_data_padding"],
                 back_data_padding = task["connection_settings"]["back_data_padding"],
@@ -62,17 +63,44 @@ def run_I2C(task, devices):
                 end_value = task["connection_settings"]["end_value"]
                 )
             if task["store_settings"]["store_to_buf"]:
-                pass
+                global BUFFER, BUFFERSIZE
+                addr = task["store_settings"]["store_address"]
+                for byte in res:
+                    BUFFER[addr] = byte
+                    addr += 1
+                    if addr >= BUFFERSIZE:
+                        print("Storage overflow")
+                        break
             if task["store_settings"]["store_to_file"]:
-                pass
+                if task["store_settings"]["file_append"]:
+                    with open(task["store_settings"]["store_file"], "a") as f:
+                        f.write(res)
+                        f.write("\n")
+                else:
+                    with open(task["store_settings"]["store_file"], "w") as f:
+                        f.write(res)
+
 
     if task["connection"]["send"]:
-        pass
-        #res = Com_I2C(devices[connection["task"]["device"]], sback_front_data_padding = task["connection_settings"]["front_data_padding"], back_front_data_padding = task["connection_settings"]["back_data_padding"])
-        if load_from_buf:
+        data = task["connection"]["data"]
+        if task["load_settings"]["load_from_buf"]:
+            global BUFFER, BUFFERSIZE
+            data = BUFFER[task["load_settings"]["load_address_start"]:task["load_settings"]["load_address_end"]]
+            print("Ready to send data {}".format(data))
+
+        if task["load_settings"]["load_from_file"]:
             pass
-        if load_from_file:
-            pass
+
+        Com_I2C(devices[task["connection"]["device_name"]]["I2C"],
+            data = data,
+            front_data_padding = task["connection_settings"]["front_data_padding"],
+            back_data_padding = task["connection_settings"]["back_data_padding"],
+            start=task["connection_settings"]["start"],
+            start_value = task["connection_settings"]["start_value"],
+            end=task["connection_settings"]["end"],
+            end_value = task["connection_settings"]["end_value"]
+            )
+
 
 FILENAME = "config.txt"
 
@@ -139,9 +167,13 @@ def run_schedule(config, task_pattern, sch_period):
             if task_pattern[i][1] == sch_t-1:
                 print("Running Task {}".format(task_pattern[i][0]))
                 run_task(config["tasks"][task_pattern[i][0]], config["devices"])
+                i = ((i+1)%n)
             elif sch_t%10000 == 0: #Every second
                 print(".", end = "")
 
 #import main_sch as m;d,s,p = m.single_setup("config.txt", [[("read_sensor", 0)], 100000]);m.run_schedule(d,s,p)
 #m.run_task(d["tasks"]["read_sensor"], d["devices"]);
-#import main_sch as m;d,s,p = m.setup("Case_1/", [[("read_sensor", 0)], 100000]);m.run_schedule(d,s,p)
+#import main_sch as m;d,s,p = m.setup("Case_1/", [[("read_sensor", 0)], 300000]);m.run_schedule(d,s,p)
+#import main_sch as m;d,s,p = m.setup("Case_2/", [[("read_sensor", 0),("write_screen", 100000)], 300000]);m.run_schedule(d,s,p)
+
+#import os; os.listdir("/"); os.rename("/boot.py", "/boot.bak")
