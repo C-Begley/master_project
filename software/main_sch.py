@@ -2,6 +2,7 @@ import mono_sch as sch
 import json
 import board
 import time
+import os
 
 
 #Reads data and then writes
@@ -40,7 +41,7 @@ def Com_I2C(addr, data = None, data_size= None, front_data_padding = 0, back_dat
 def run_I2C(task, devices):
     if task["connection"]["recieve"]:
         res = Com_I2C(
-            devices[task["connection"]["peripheral_name"]]["I2C"],
+            devices[task["connection"]["device_name"]]["I2C"],
             data_size=task["connection"]["data_size"],
             start=task["connection_settings"]["start"],
             start_value = task["connection_settings"]["start_value"],
@@ -49,6 +50,7 @@ def run_I2C(task, devices):
             )
         #print(res)
         if res != None:
+            print(res)
             if task["connection"]["pass_through"]:
                 res = Com_I2C(devices[task["connection"]["pass_location"]]["I2C"],
                 data = res,
@@ -66,7 +68,7 @@ def run_I2C(task, devices):
 
     if task["connection"]["send"]:
         pass
-        #res = Com_I2C(devices[connection["task"]["peripheral"]], sback_front_data_padding = task["connection_settings"]["front_data_padding"], back_front_data_padding = task["connection_settings"]["back_data_padding"])
+        #res = Com_I2C(devices[connection["task"]["device"]], sback_front_data_padding = task["connection_settings"]["front_data_padding"], back_front_data_padding = task["connection_settings"]["back_data_padding"])
         if load_from_buf:
             pass
         if load_from_file:
@@ -74,9 +76,39 @@ def run_I2C(task, devices):
 
 FILENAME = "config.txt"
 
-def setup(filename, schedule= None):
+def single_setup(filename, schedule= None):
     with open(filename) as fp:
         data = json.loads(fp.read())
+    if schedule == None:
+        if not sch.possible_schedule(data["tasks"]):
+            #print("Cannot be scheduled")
+            return False
+
+        task_pattern, sch_period = sch.schedule_order(data["tasks"])
+        return data, task_pattern, sch_period
+
+    else:
+        return data, schedule[0], schedule[1]
+
+
+def setup(folder, schedule= None):
+    if folder[-1] != "/":
+        folder += "/"
+    files = os.listdir(folder)
+
+    data = {"devices" : {}, "tasks": {}}
+
+    with open(folder + "devices.txt") as f:
+        data["devices"] = json.loads(f.read())
+
+    files.remove("devices.txt")
+
+    for file in files:
+        with open(folder + file) as f:
+            tasks = json.loads(f.read())
+            for task in tasks:
+                data["tasks"][task] = tasks[task]
+
     if schedule == None:
         if not sch.possible_schedule(data["tasks"]):
             #print("Cannot be scheduled")
@@ -106,9 +138,10 @@ def run_schedule(config, task_pattern, sch_period):
             sch_t = ((sch_t+1)%sch_period)
             if task_pattern[i][1] == sch_t-1:
                 print("Running Task {}".format(task_pattern[i][0]))
-                run_task(config["tasks"][task_pattern[i][0]], config["peripherals"])
+                run_task(config["tasks"][task_pattern[i][0]], config["devices"])
             elif sch_t%10000 == 0: #Every second
                 print(".", end = "")
 
-#import main_sch as m;d,s,p = m.setup("config.txt", [[("read_sensor", 0)], 100000]);m.run_schedule(d,s,p)
-#m.run_task(d["tasks"]["read_sensor"], d["peripherals"]);
+#import main_sch as m;d,s,p = m.single_setup("config.txt", [[("read_sensor", 0)], 100000]);m.run_schedule(d,s,p)
+#m.run_task(d["tasks"]["read_sensor"], d["devices"]);
+#import main_sch as m;d,s,p = m.setup("Case_1/", [[("read_sensor", 0)], 100000]);m.run_schedule(d,s,p)
