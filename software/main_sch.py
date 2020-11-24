@@ -7,6 +7,18 @@ import os
 BUFFERSIZE = 5
 BUFFER = bytearray(BUFFERSIZE)
 
+def add_default_data(data,default):
+    for key in default:
+        if type(default[key]) == dict:
+            if key not in data:
+                data[key] = default[key].copy()
+            else:
+                data[key] = add_default_data(data[key], default[key])
+        else:
+            if key not in data:
+                data[key] = default[key]
+    return data
+
 #Reads data and then writes
 def Com_I2C(addr, data = None, data_size= None, front_data_padding = 0, back_data_padding = 0,  start= False, start_value = 0, end = False, end_value = 0):
     i2c = board.I2C()
@@ -86,7 +98,6 @@ def run_I2C(task, devices):
         if task["load_settings"]["load_from_buf"]:
             global BUFFER, BUFFERSIZE
             data = BUFFER[task["load_settings"]["load_address_start"]:task["load_settings"]["load_address_end"]]
-            print("Ready to send data {}".format(data))
 
         if task["load_settings"]["load_from_file"]:
             pass
@@ -119,7 +130,7 @@ def single_setup(filename, schedule= None):
         return data, schedule[0], schedule[1]
 
 
-def setup(folder, schedule= None):
+def setup(folder, schedule= None, default="default.txt"):
     if folder[-1] != "/":
         folder += "/"
     files = os.listdir(folder)
@@ -131,11 +142,16 @@ def setup(folder, schedule= None):
 
     files.remove("devices.txt")
 
+    with open(default) as f:
+        default_data = json.loads(f.read())
+
+    files.remove(default)
+
     for file in files:
         with open(folder + file) as f:
             tasks = json.loads(f.read())
             for task in tasks:
-                data["tasks"][task] = tasks[task]
+                data["tasks"][task] = add_default_data(tasks[task], default_data)
 
     if schedule == None:
         if not sch.possible_schedule(data["tasks"]):
@@ -175,5 +191,6 @@ def run_schedule(config, task_pattern, sch_period):
 #m.run_task(d["tasks"]["read_sensor"], d["devices"]);
 #import main_sch as m;d,s,p = m.setup("Case_1/", [[("read_sensor", 0)], 300000]);m.run_schedule(d,s,p)
 #import main_sch as m;d,s,p = m.setup("Case_2/", [[("read_sensor", 0),("write_screen", 100000)], 300000]);m.run_schedule(d,s,p)
+#import main_sch as m;d,s,p = m.setup("Case_3/", [[("read_sensor", 0),("write_screen", 100000)], 300000]);m.run_schedule(d,s,p)
 
 #import os; os.listdir("/"); os.rename("/boot.py", "/boot.bak")
