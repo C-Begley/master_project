@@ -22,13 +22,16 @@
  },
  "load_settings" : {
                     "load_from_buf": false,
-                     "load_address_start" : 0,
-                     "load_address_end" : 0,
-                     "load_from_file": false,
-                     "load_file" : "",
-                     "load_line" : false,
-                     "start_line": 0,
-                     "end_line":0
+                    "load_address_start" : 0,
+                    "load_address_end" : 0,
+                    "load_from_file": false,
+                    "load_file" : "",
+                    "line_delimiter": "",
+                    "load_line" : false,
+                    "start_line": 0,
+                    "end_line":0,
+                    "disjoint": false,
+                    "lines":[]
  },
  "store_settings":{
                    "store_to_buf": false,

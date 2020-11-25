@@ -100,8 +100,29 @@ def run_I2C(task, devices):
             data = BUFFER[task["load_settings"]["load_address_start"]:task["load_settings"]["load_address_end"]]
 
         if task["load_settings"]["load_from_file"]:
-            pass
+            i = 0
+            lines = []
+            with open(task["load_settings"]["load_file"]) as f:
+                if not task["load_settings"]["disjoint"]:
+                    i = task["load_settings"]["start_line"]
+                    while(i < task["load_settings"]["end_line"]):
+                        lines.append(f.readline())
+                        i +=1
+                else:
+                    current_l = 0
+                    l = task["load_settings"]["lines"][current_l]
+                    while (i <= task["load_settings"]["lines"][-1]):
+                        if l == i:
+                            lines.append(f.readline().strip())
+                            current_l += 1
+                            if current_l >= len(task["load_settings"]["lines"]):
+                                break
+                            l = task["load_settings"]["lines"][current_l]
+                        else:
+                            f.readline()
+                        i += 1
 
+            data = task["load_settings"]["line_delimiter"].join(lines)
         Com_I2C(devices[task["connection"]["device_name"]]["I2C"],
             data = data,
             front_data_padding = task["connection_settings"]["front_data_padding"],
@@ -111,9 +132,6 @@ def run_I2C(task, devices):
             end=task["connection_settings"]["end"],
             end_value = task["connection_settings"]["end_value"]
             )
-
-
-FILENAME = "config.txt"
 
 def single_setup(filename, schedule= None):
     with open(filename) as fp:
@@ -146,6 +164,8 @@ def setup(folder, schedule= None, default="default.txt"):
         default_data = json.loads(f.read())
 
     files.remove(default)
+
+    files = [f for f in files if f[-4:] == ".txt"]
 
     for file in files:
         with open(folder + file) as f:
@@ -192,5 +212,6 @@ def run_schedule(config, task_pattern, sch_period):
 #import main_sch as m;d,s,p = m.setup("Case_1/", [[("read_sensor", 0)], 300000]);m.run_schedule(d,s,p)
 #import main_sch as m;d,s,p = m.setup("Case_2/", [[("read_sensor", 0),("write_screen", 100000)], 300000]);m.run_schedule(d,s,p)
 #import main_sch as m;d,s,p = m.setup("Case_3/", [[("read_sensor", 0),("write_screen", 100000)], 300000]);m.run_schedule(d,s,p)
+#import main_sch as m;d,s,p = m.setup("Case_4/", [[("read_sensor", 0),("write_screen", 100000), ("write_screen_text", 200000)], 300000]);m.run_schedule(d,s,p)
 
 #import os; os.listdir("/"); os.rename("/boot.py", "/boot.bak")

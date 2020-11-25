@@ -1,0 +1,21 @@
+{
+ "write_screen_text":{                         
+                "duration": 1000000,
+                "period":   3000000,
+                "connection" :{
+                               "device_name":"Coms",
+                               "type": "I2C",
+                               "send" : true,
+                },
+                "connection_settings" : {
+                                         "front_data_padding" : 1,                        
+                },
+                "load_settings" : {
+                                   "load_from_file": true,
+                                   "load_file" : "Case_4/files/test_disjoint.txt",
+                                   "line_delimiter": " ",
+                                   "disjoint": true,
+                                   "lines":[1,3,5]
+                }
+ }
+}
