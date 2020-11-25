@@ -23,28 +23,22 @@ def add_default_data(data,default):
 def Com_I2C(addr, data = None, data_size= None, front_data_padding = 0, back_data_padding = 0,  start= False, start_value = 0, end = False, end_value = 0):
     i2c = board.I2C()
     recieved = None
-    #print(data_size,data_size != None )
     while not i2c.try_lock():
-        #print("Not locking")
         pass
 
     if start:
-        #print("Sending start to {}".format(addr))
         i2c.writeto(addr, bytes([int(str(start_value),2)]))
 
     if data_size != None:
-        #print("Reading data from {}".format(addr))
         res = bytearray(data_size)
         i2c.readfrom_into(addr, res)
         recieved = res
 
     elif data:
-        #print("Sending data to {}".format(addr))
         send = bytearray(front_data_padding) + bytearray(data) + bytearray(back_data_padding)
         i2c.writeto(addr, send)
 
     if end:
-        #print("Sending end word data to {}".format(addr))
         i2c.writeto(addr, bytes([int(str(end_value),2)]))
 
 
@@ -62,7 +56,6 @@ def run_I2C(task, devices):
             end=task["connection_settings"]["end"],
             end_value = task["connection_settings"]["end_value"]
             )
-        #print(res)
         if res != None:
             if task["connection"]["pass_through"]:
                 Com_I2C(devices[task["connection"]["pass_location"]]["I2C"],
@@ -133,22 +126,22 @@ def run_I2C(task, devices):
             end_value = task["connection_settings"]["end_value"]
             )
 
-def single_setup(filename, schedule= None):
+def single_setup(filename, schedule= None, step = 1):
     with open(filename) as fp:
         data = json.loads(fp.read())
     if schedule == None:
         if not sch.possible_schedule(data["tasks"]):
-            #print("Cannot be scheduled")
+            print("Cannot be scheduled")
             return False
 
-        task_pattern, sch_period = sch.schedule_order(data["tasks"])
+        task_pattern, sch_period = sch.schedule_order(data["tasks"],step=step)
         return data, task_pattern, sch_period
 
     else:
         return data, schedule[0], schedule[1]
 
 
-def setup(folder, schedule= None, default="default.txt"):
+def setup(folder, schedule= None, default="default.txt", step=1):
     if folder[-1] != "/":
         folder += "/"
     files = os.listdir(folder)
@@ -175,10 +168,10 @@ def setup(folder, schedule= None, default="default.txt"):
 
     if schedule == None:
         if not sch.possible_schedule(data["tasks"]):
-            #print("Cannot be scheduled")
+            print("Cannot be scheduled")
             return False
 
-        task_pattern, sch_period = sch.schedule_order(data["tasks"])
+        task_pattern, sch_period = sch.schedule_order(data["tasks"], step=step)
         return data, task_pattern, sch_period
 
     else:
@@ -209,9 +202,9 @@ def run_schedule(config, task_pattern, sch_period):
 
 #import main_sch as m;d,s,p = m.single_setup("config.txt", [[("read_sensor", 0)], 100000]);m.run_schedule(d,s,p)
 #m.run_task(d["tasks"]["read_sensor"], d["devices"]);
-#import main_sch as m;d,s,p = m.setup("Case_1/", [[("read_sensor", 0)], 300000]);m.run_schedule(d,s,p)
-#import main_sch as m;d,s,p = m.setup("Case_2/", [[("read_sensor", 0),("write_screen", 100000)], 300000]);m.run_schedule(d,s,p)
-#import main_sch as m;d,s,p = m.setup("Case_3/", [[("read_sensor", 0),("write_screen", 100000)], 300000]);m.run_schedule(d,s,p)
-#import main_sch as m;d,s,p = m.setup("Case_4/", [[("read_sensor", 0),("write_screen", 100000), ("write_screen_text", 200000)], 300000]);m.run_schedule(d,s,p)
-
+#import main_sch as m;d,s,p = m.setup("Case_1/", schedule=[[("read_sensor", 0)], 300000]);m.run_schedule(d,s,p)
+#import main_sch as m;d,s,p = m.setup("Case_2/", schedule=[[("read_sensor", 0),("write_screen", 100000)], 300000]);m.run_schedule(d,s,p)
+#import main_sch as m;d,s,p = m.setup("Case_3/", schedule=[[("read_sensor", 0),("write_screen", 100000)], 300000]);m.run_schedule(d,s,p)
+#import main_sch as m;d,s,p = m.setup("Case_4/", schedule=[[("read_sensor", 0),("write_screen", 100000), ("write_screen_text", 200000)], 300000]);m.run_schedule(d,s,p)
+#import main_sch as m;d,s,p = m.setup("Case_4/", step=1000);m.run_schedule(d,s,p)
 #import os; os.listdir("/"); os.rename("/boot.py", "/boot.bak")

@@ -1,7 +1,7 @@
 {
  "write_screen_text":{                         
-                "duration": 1000000,
-                "period":   3000000,
+                "duration": 100000,
+                "period":   300001,
                 "connection" :{
                                "device_name":"Coms",
                                "type": "I2C",
