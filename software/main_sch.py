@@ -289,7 +289,7 @@ def run_task(task, devices):
                 if addr >= BUFFERSIZE:
                     print("Storage overflow")
                     break
-        print(BUFFER)
+    print(BUFFER)
     elif task["store_settings"]["store_to_file"]:
         if task["store_settings"]["file_append"]:
             with open(task["store_settings"]["store_file"], "a") as f:
@@ -308,8 +308,8 @@ def run_schedule(config, task_pattern, sch_period):
 
     while True:
         if t + 1000 <= time.monotonic_ns(): # 1 us
-            t += 1
-            sch_t = ((sch_t+1)%sch_period)
+            sch_t = ((sch_t+((time.monotonic_ns()-t)//1000))%sch_period)
+            t = time.monotonic_ns()
             if task_pattern[i][1] == sch_t-1:
                 print("Running Task {}".format(task_pattern[i][0]))
                 run_task(config["tasks"][task_pattern[i][0]], config["devices"])
