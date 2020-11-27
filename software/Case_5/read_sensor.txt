@@ -1,12 +1,12 @@
 {
  "read_sensor":{                          
                 "duration": 100000,
-                "period":   300001,
+                "period":   300000,
                 "connection" :{
                                "device_name":"Payload",
-                               "type": "I2C",
+                               "type": "UART",
                                "receive": true,
-                               "data_size" : 2,
+                               "data_size" : 2
                 },
                 "store_settings":{
                                   "store_to_buf": true,

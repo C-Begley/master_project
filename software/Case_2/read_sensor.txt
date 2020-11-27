@@ -1,14 +1,14 @@
 {
  "read_sensor":{
                 "deadline" : "Soft",                             
-                "duration": 1000000,
-                "period":   3000000,
+                "duration": 100000,
+                "period":   300000,
                 "connection" :{
                                "device_name":"Payload",
                                "type": "I2C",
                                "send" : false,
                                "data" : "",
-                               "recieve": true,
+                               "receive": true,
                                "data_size" : 2,
                                "pass_through" : false,
                                "pass_location" : ""

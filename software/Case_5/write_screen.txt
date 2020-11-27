@@ -4,11 +4,12 @@
                 "period":   300000,
                 "connection" :{
                                "device_name":"Coms",
-                               "type": "I2C",
+                               "type": "UART",
                                "send" : true,
                 },
                 "connection_settings" : {
-                                         "front_data_padding" : 1,                        
+                                         "back_data_padding" : 2, 
+                                         "start":false,                       
                 },
                 "load_settings" : {
                                    "load_from_buf": true,

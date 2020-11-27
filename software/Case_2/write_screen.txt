@@ -1,14 +1,14 @@
 {
  "write_screen":{
                 "deadline" : "Soft",                             
-                "duration": 1000000,
-                "period":   3000000,
+                "duration": 100000,
+                "period":   300000,
                 "connection" :{
                                "device_name":"Coms",
                                "type": "I2C",
                                "send" : true,
                                "data" : "",
-                               "recieve": false,
+                               "receive": false,
                                "data_size" : 0,
                                "pass_through" : false,
                                "pass_location" : ""
