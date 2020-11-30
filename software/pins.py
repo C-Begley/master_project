@@ -9,7 +9,8 @@ pins = {'A0':board.A0, 'A1':board.A1, 'A10':board.A10, 'A11':board.A11, 'A12':bo
         'D30':board.D30, 'D31':board.D31, 'D32':board.D32, 'D33':board.D33, 'D34':board.D34, 'D35':board.D35, 'D36':board.D36, 'D37':board.D37,
         'D38':board.D38, 'D39':board.D39, 'D4':board.D4, 'D40':board.D40, 'D41':board.D41, 'D42':board.D42, 'D43':board.D43, 'D44':board.D44,
         'D45':board.D45, 'D46':board.D46, 'D47':board.D47, 'D48':board.D48, 'D49':board.D49, 'D5':board.D5, 'D50':board.D50, 'D51':board.D51,
-        'D52':board.D52, 'D53':board.D53, 'D6':board.D6, 'D7':board.D7, 'D8':board.D8, 'D9':board.D9}
+        'D52':board.D52, 'D53':board.D53, 'D6':board.D6, 'D7':board.D7, 'D8':board.D8, 'D9':board.D9,
+        None : None}
 
 
 #'I2C', 'LED_RX', 'LED_TX', 'MISO', 'MOSI', 'NEOPIXEL', 'PCC_CLK', 'PCC_D0', 'PCC_D1', 'PCC_D10', 'PCC_D11', 'PCC_D12', 'PCC_D13', 'PCC_D2', 'PCC_D3', 'PCC_D4', 'PCC_D5', 'PCC_D6', 'PCC_D7', 'PCC_D8', 'PCC_D9', 'PCC_DEN1', 'PCC_DEN2', 'PCC_XCLK', 'RX', 'RX1', 'RX2', 'RX3', 'SCK', 'SCL', 'SCL1', 'SDA', 'SDA1', 'SD_CARD_DETECT', 'SD_CS', 'SD_MISO', 'SD_MOSI', 'SD_SCK', 'SPI', 'SS', 'TX', 'TX1', 'TX2', 'TX3', 'UART']

@@ -27,6 +27,100 @@ def add_default_dict(data,default):
                 data[key] = default[key]
     return data
 
+def Com_SPI(data = None, data_size=None, CLK = board.SCK, MOSI=None, MISO= None, slave = None, write_value = 0,  baud=100000, polarity=0, phase=0, bits=8,
+            front_data_padding = 0, back_data_padding = 0, start= False, start_value = 0, end = False, end_value = 0, delimiter=""):
+
+    spi = busio.SPI(CLK, MISO=MISO, MOSI=MOSI)
+    received = None
+
+    while not spi.try_lock():
+        pass
+
+    p = None
+    if slave != None:
+        p = digitalio.DigitalInOut(pins[slave])
+        p.direction = digitalio.Direction.OUTPUT
+        p.value = True
+
+    if start:
+        spi.write(bytes([int(str(start_value),2)]))
+
+    if data_size != None and data:
+        send = bytearray(front_data_padding) + bytearray(data) + bytearray(back_data_padding)
+        recieved = bytearray(data_size)
+        write_readinto(recieved, send)
+        if delimiter != "":
+            received = str(res)[2:-1].split(delimiter)
+
+    elif data_size != None:
+        recieved = bytearray(data_size)
+        received = spi.readinto(recieved, write_value=write_value)
+        if delimiter != "":
+            received = str(res)[2:-1].split(delimiter)
+
+    elif data:
+        send = bytearray(front_data_padding) + bytearray(data) + bytearray(back_data_padding)
+        spi.write(send)
+
+    if end:
+        spi.write(bytes([int(str(end_value),2)]))
+
+    if slave != None:
+        p.deinit()
+
+    spi.unlock()
+    if slave != None:
+        p.deinit()
+    spi.deinit()
+    return received
+
+def run_SPI(task, devices, data):
+    res = None
+
+    if task["connection"]["receive"] or task["connection"]["send"]:
+        res = Com_SPI(
+            data_size = task["connection"]["data_size"],
+            data = task["connection"]["data"],
+            delimiter = task["connection"]["data_delimiter"],
+            start = task["connection_settings"]["start"],
+            start_value = task["connection_settings"]["start_value"],
+            end = task["connection_settings"]["end"],
+            end_value = task["connection_settings"]["end_value"],
+            front_data_padding = task["connection_settings"]["front_data_padding"],
+            back_data_padding = task["connection_settings"]["back_data_padding"],
+            baud = devices[task["connection"]["device_name"]]["SPI"]["baud"],
+            bits = devices[task["connection"]["device_name"]]["SPI"]["bits"],
+            polarity = devices[task["connection"]["device_name"]]["SPI"]["polarity"],
+            phase = devices[task["connection"]["device_name"]]["SPI"]["phase"],
+            write_value = devices[task["connection"]["device_name"]]["SPI"]["write_value"],
+            CLK = pins[devices[task["connection"]["device_name"]]["SPI"]["CLK"]],
+            MOSI = pins[devices[task["connection"]["device_name"]]["SPI"]["MOSI"]],
+            MISO = pins[devices[task["connection"]["device_name"]]["SPI"]["MISO"]],
+            )
+
+        if res != None:
+            if task["connection"]["pass_through"]:
+                Com_SPI(
+                    data = task["connection"]["data"],
+                    delimiter = task["connection"]["data_delimiter"],
+                    start = task["connection_settings"]["start"],
+                    start_value = task["connection_settings"]["start_value"],
+                    end = task["connection_settings"]["end"],
+                    end_value = task["connection_settings"]["end_value"],
+                    front_data_padding = task["connection_settings"]["front_data_padding"],
+                    back_data_padding = task["connection_settings"]["back_data_padding"],
+                    baud = devices[task["connection"]["device_name"]]["SPI"]["baud"],
+                    bits = devices[task["connection"]["device_name"]]["SPI"]["bits"],
+                    polarity = devices[task["connection"]["device_name"]]["SPI"]["polarity"],
+                    phase = devices[task["connection"]["device_name"]]["SPI"]["phase"],
+                    write_value = devices[task["connection"]["device_name"]]["SPI"]["write_value"],
+                    CLK = pins[devices[task["connection"]["device_name"]]["SPI"]["CLK"]],
+                    MOSI = pins[devices[task["connection"]["device_name"]]["SPI"]["MOSI"]],
+                    MISO = pins[devices[task["connection"]["device_name"]]["SPI"]["MISO"]],
+                    )
+
+    return res
+
 def Com_UART(data = None, data_size=None, baud=9600, bits = 8, parity=None, stop=1, timeout=1, receiver_buffer_size=64, TX = board.TX, RX = board.RX,
              front_data_padding = 0, back_data_padding = 0,  start= False, start_value = 0, end = False, end_value = 0, delimiter=""):
 
@@ -41,7 +135,7 @@ def Com_UART(data = None, data_size=None, baud=9600, bits = 8, parity=None, stop
         if delimiter != "":
             received = str(res)[2:-1].split(delimiter)
 
-    elif data:
+    if data:
         send = bytearray(front_data_padding) + bytearray(data) + bytearray(back_data_padding)
         print(send)
         uart.write(send)
@@ -55,27 +149,32 @@ def Com_UART(data = None, data_size=None, baud=9600, bits = 8, parity=None, stop
 def run_UART(task, devices, data):
     res = None
 
-    if task["connection"]["receive"]:
+    if task["connection"]["receive"] or task["connection"]["send"]:
         res = Com_UART(
-            data_size = task["connection"]["data_size"],
-            start = task["connection_settings"]["start"],
-            start_value = task["connection_settings"]["start_value"],
-            end = task["connection_settings"]["end"],
-            end_value = task["connection_settings"]["end_value"],
-            baud = devices[task["connection"]["device_name"]]["UART"]["baud"],
-            bits = devices[task["connection"]["device_name"]]["UART"]["bits"],
-            parity = devices[task["connection"]["device_name"]]["UART"]["parity"],
-            stop = devices[task["connection"]["device_name"]]["UART"]["stop"],
-            timeout = devices[task["connection"]["device_name"]]["UART"]["timeout"],
-            receiver_buffer_size = devices[task["connection"]["device_name"]]["UART"]["receiver_buffer_size"],
-            TX = pins[devices[task["connection"]["device_name"]]["UART"]["TX"]],
-            RX = pins[devices[task["connection"]["device_name"]]["UART"]["RX"]]
-            )
+                    data_size = task["connection"]["data_size"],
+                    data = task["connection"]["data"],
+                    delimiter = task["connection"]["data_delimiter"],
+                    start = task["connection_settings"]["start"],
+                    start_value = task["connection_settings"]["start_value"],
+                    end = task["connection_settings"]["end"],
+                    end_value = task["connection_settings"]["end_value"],
+                    front_data_padding = task["connection_settings"]["front_data_padding"],
+                    back_data_padding = task["connection_settings"]["back_data_padding"],
+                    baud = devices[task["connection"]["device_name"]]["UART"]["baud"],
+                    bits = devices[task["connection"]["device_name"]]["UART"]["bits"],
+                    parity = devices[task["connection"]["device_name"]]["UART"]["parity"],
+                    stop = devices[task["connection"]["device_name"]]["UART"]["stop"],
+                    timeout = devices[task["connection"]["device_name"]]["UART"]["timeout"],
+                    receiver_buffer_size = devices[task["connection"]["device_name"]]["UART"]["receiver_buffer_size"],
+                    TX = pins[devices[task["connection"]["device_name"]]["UART"]["TX"]],
+                    RX = pins[devices[task["connection"]["device_name"]]["UART"]["RX"]]
+              )
 
         if res != None:
             if task["connection"]["pass_through"]:
                 res = Com_UART(
                     data = res,
+                    delimiter = task["connection"]["data_delimiter"],
                     front_data_padding = task["connection_settings"]["front_data_padding"],
                     back_data_padding = task["connection_settings"]["back_data_padding"],
                     start = task["connection_settings"]["start"],
@@ -90,33 +189,12 @@ def run_UART(task, devices, data):
                     receiver_buffer_size = devices[task["connection"]["pass_location"]]["UART"]["receiver_buffer_size"],
                     TX = pins[devices[task["connection"]["pass_location"]]["UART"]["TX"]],
                     RX = pins[devices[task["connection"]["pass_location"]]["UART"]["RX"]]
-            )
-
-    elif task["connection"]["send"]:
-         res = Com_UART(
-                data = data,
-                front_data_padding = task["connection_settings"]["front_data_padding"],
-                back_data_padding = task["connection_settings"]["back_data_padding"],
-                start = task["connection_settings"]["start"],
-                start_value = task["connection_settings"]["start_value"],
-                end = task["connection_settings"]["end"],
-                end_value = task["connection_settings"]["end_value"],
-                baud = devices[task["connection"]["device_name"]]["UART"]["baud"],
-                bits = devices[task["connection"]["device_name"]]["UART"]["bits"],
-                parity = devices[task["connection"]["device_name"]]["UART"]["parity"],
-                stop = devices[task["connection"]["device_name"]]["UART"]["stop"],
-                timeout = devices[task["connection"]["device_name"]]["UART"]["timeout"],
-                receiver_buffer_size = devices[task["connection"]["device_name"]]["UART"]["receiver_buffer_size"],
-                TX = pins[devices[task["connection"]["device_name"]]["UART"]["TX"]],
-                RX = pins[devices[task["connection"]["device_name"]]["UART"]["RX"]]
-            )
-
+                )
     return res
 
-
 #Reads data and then writes
-def Com_I2C(addr, data = None, data_size = None, front_data_padding = 0, back_data_padding = 0,  start= False, start_value = 0,
-            end = False, end_value = 0, SDA = board.SDA, SCL = board.SCL, frequency=400000, timeout=255):
+def Com_I2C(addr, data = None, data_size = None, SDA = board.SDA, SCL = board.SCL, frequency=400000, timeout=255,front_data_padding = 0, back_data_padding = 0,  start= False, start_value = 0,
+            end = False, end_value = 0, delimiter = ""):
     #i2c = board.I2C()
     i2c = busio.I2C(SCL, SDA, frequency=frequency, timeout=timeout)
     received = None
@@ -130,11 +208,12 @@ def Com_I2C(addr, data = None, data_size = None, front_data_padding = 0, back_da
         i2c.writeto(addr, bytes([int(str(start_value),2)]))
 
     if data_size != None:
-        res = bytearray(data_size)
-        i2c.readfrom_into(addr, res)
-        received = res
+        recieved = bytearray(data_size)
+        i2c.readfrom_into(addr, received)
+        if delimiter != "":
+            received = str(res)[2:-1].split(delimiter)
 
-    elif data:
+    if data:
         send = bytearray(front_data_padding) + bytearray(data) + bytearray(back_data_padding)
         i2c.writeto(addr, send)
 
@@ -149,14 +228,18 @@ def Com_I2C(addr, data = None, data_size = None, front_data_padding = 0, back_da
 def run_I2C(task, devices, data):
     res = None
 
-    if task["connection"]["receive"]:
+    if task["connection"]["receive"] or task["connection"]["send"]:
         res = Com_I2C(
             devices[task["connection"]["device_name"]]["I2C"]["address"],
-            data_size=task["connection"]["data_size"],
-            start=task["connection_settings"]["start"],
+            data_size = task["connection"]["data_size"],
+            data = task["connection"]["data"],
+            delimiter = task["connection"]["data_delimiter"],
+            start = task["connection_settings"]["start"],
             start_value = task["connection_settings"]["start_value"],
-            end=task["connection_settings"]["end"],
+            end = task["connection_settings"]["end"],
             end_value = task["connection_settings"]["end_value"],
+            front_data_padding = task["connection_settings"]["front_data_padding"],
+            back_data_padding = task["connection_settings"]["back_data_padding"],
             SDA= pins[devices[task["connection"]["device_name"]]["I2C"]["SDA"]],
             SCL= pins[devices[task["connection"]["device_name"]]["I2C"]["SCL"]]
             )
@@ -164,6 +247,7 @@ def run_I2C(task, devices, data):
             if task["connection"]["pass_through"]:
                 Com_I2C(devices[task["connection"]["pass_location"]]["I2C"]["address"],
                 data = res,
+                delimiter = task["connection"]["data_delimiter"],
                 front_data_padding = task["connection_settings"]["front_data_padding"],
                 back_data_padding = task["connection_settings"]["back_data_padding"],
                 start=task["connection_settings"]["start"],
@@ -173,19 +257,6 @@ def run_I2C(task, devices, data):
                 SDA= pins[devices[task["connection"]["pass_location"]]["I2C"]["SDA"]],
                 SCL= pins[devices[task["connection"]["pass_location"]]["I2C"]["SCL"]]
                 )
-
-    elif task["connection"]["send"]:
-            Com_I2C(devices[task["connection"]["device_name"]]["I2C"]["address"],
-            data = data,
-            front_data_padding = task["connection_settings"]["front_data_padding"],
-            back_data_padding = task["connection_settings"]["back_data_padding"],
-            start=task["connection_settings"]["start"],
-            start_value = task["connection_settings"]["start_value"],
-            end=task["connection_settings"]["end"],
-            end_value = task["connection_settings"]["end_value"],
-            SDA= pins[devices[task["connection"]["device_name"]]["I2C"]["SDA"]],
-            SCL= pins[devices[task["connection"]["device_name"]]["I2C"]["SCL"]]
-            )
 
     return res
 
@@ -303,7 +374,7 @@ def run_task(task, devices):
     elif task["connection"]["type"] == "UART":
         data = run_UART(task, devices, data)
     elif task["connection"]["type"] == "SPI":
-        print("SPI not implemented")
+        data = run_SPI(task, devices, data)
     elif task["connection"]["type"] == "CAN":
         print("CAN not implemented")
     else:
@@ -372,4 +443,5 @@ def run_schedule(config, task_pattern, sch_period):
 #import main_sch as m;d,s,p = m.setup("Case_4/", step=1000);m.run_schedule(d,s,p)
 #import main_sch as m;d,s,p = m.setup("Case_5/", step=1000);m.run_schedule(d,s,p)
 #import main_sch as m;d,s,p = m.setup("Case_6/", step=1000);m.run_schedule(d,s,p)
+#import main_sch as m;d,s,p = m.setup("Case_7/", step=1000);m.run_schedule(d,s,p)
 #import os; os.listdir("/"); os.rename("/boot.py", "/boot.bak")
