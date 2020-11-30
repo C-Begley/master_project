@@ -1,7 +1,7 @@
 {
  "read_sensor":{                          
-                "duration": 100000,
-                "period":   300000,
+                "duration": 1000,
+                "period":   3000,
                 "connection" :{
                                "device_name":"Payload",
                                "type": "I2C",

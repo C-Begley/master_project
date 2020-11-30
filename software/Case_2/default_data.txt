@@ -44,5 +44,12 @@
  "pins":{
          "pin_high" : [],
          "pin_low"  : []
- }          
+ },
+ "custom_function": {
+                 "custom" : false,
+                 "before" : false,
+                 "after" : false,
+                 "custom_function_name": "",
+                 "arguements" : [],
+  }          
 }

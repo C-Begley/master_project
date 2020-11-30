@@ -5,9 +5,15 @@ import busio
 import time
 import os
 from pins import pins
+import digitalio
+import custom_functions as cf
+
+#Custom function
+import custom_functions
 
 BUFFERSIZE = 5
 BUFFER = bytearray(BUFFERSIZE)
+INCREMENT = 1000000 #Offsets timing, 1000000000 = 1 sec per tick, 1000000 = 1 millisecond, 1000 = microsecond, 1 = nanosecond
 
 def add_default_dict(data,default):
     for key in default:
@@ -240,8 +246,24 @@ def setup(folder, schedule= None, default_data="default_data.txt", default_devic
         return data, schedule[0], schedule[1]
 
 def run_task(task, devices):
-    data = task["connection"]["data"]
+    active_pins = []
 
+    #Set pins high and low
+    if "pins" in task:
+        for pin in task["pins"]["pin_high"]:
+            p = digitalio.DigitalInOut(pins[pin])
+            p.direction = digitalio.Direction.OUTPUT
+            p.value = True
+            active_pins.append(p)
+
+        for pin in task["pins"]["pin_low"]:
+            p = digitalio.DigitalInOut(pins[pin])
+            p.direction = digitalio.Direction.OUTPUT
+            p.value = False
+            active_pins.append(p)
+
+    data = task["connection"]["data"]
+    #Load data
     if task["load_settings"]["load_from_buf"]:
         global BUFFER, BUFFERSIZE
         print(BUFFER)
@@ -271,14 +293,28 @@ def run_task(task, devices):
                     i += 1
         data = task["load_settings"]["line_delimiter"].join(lines)
 
+    if task["custom_function"]["custom"] and task["custom_function"]["before"]:
+        global BUFFER
+        data = cf.func_dict[task["custom_function"]["custom_function_name"]](BUFFER,active_pins,data,task["custom_function"]["arguements"])
+
+    #Run task
     if task["connection"]["type"] == "I2C":
         data = run_I2C(task, devices,data )
     elif task["connection"]["type"] == "UART":
         data = run_UART(task, devices, data)
+    elif task["connection"]["type"] == "SPI":
+        print("SPI not implemented")
+    elif task["connection"]["type"] == "CAN":
+        print("CAN not implemented")
     else:
         print("Unknown connection type {}".format(task["connection"]["type"]))
         return None
 
+    if task["custom_function"]["custom"] and task["custom_function"]["after"]:
+        global BUFFER
+        data = cf.func_dict[task["custom_function"]["custom_function_name"]](BUFFER,active_pins,data,task["custom_function"]["arguements"] )
+
+    #Store data
     if task["store_settings"]["store_to_buf"]:
         global BUFFER, BUFFERSIZE
         addr = task["store_settings"]["store_address"]
@@ -289,7 +325,7 @@ def run_task(task, devices):
                 if addr >= BUFFERSIZE:
                     print("Storage overflow")
                     break
-    print(BUFFER)
+
     elif task["store_settings"]["store_to_file"]:
         if task["store_settings"]["file_append"]:
             with open(task["store_settings"]["store_file"], "a") as f:
@@ -299,23 +335,33 @@ def run_task(task, devices):
             with open(task["store_settings"]["store_file"], "w") as f:
                 f.write(res)
 
+    for pin in active_pins:
+        pin.deinit()
 
 def run_schedule(config, task_pattern, sch_period):
-    t = time.monotonic_ns()
-    sch_t = 0
+    global INCREMENT
+    sch_t = -1
     i =0
+    task_pattern.append(("end", float("inf")))
     n = len(task_pattern)
+    print(task_pattern)
+    t = time.monotonic_ns()-INCREMENT
 
     while True:
-        if t + 1000 <= time.monotonic_ns(): # 1 us
-            sch_t = ((sch_t+((time.monotonic_ns()-t)//1000))%sch_period)
-            t = time.monotonic_ns()
-            if task_pattern[i][1] == sch_t-1:
-                print("Running Task {}".format(task_pattern[i][0]))
-                run_task(config["tasks"][task_pattern[i][0]], config["devices"])
-                i = ((i+1)%n)
-            elif sch_t%10000 == 0: #Every second
-                print(".", end = "")
+            if t + INCREMENT <= time.monotonic_ns():
+                sch_t = (sch_t+((time.monotonic_ns()-t)//INCREMENT))
+
+                if sch_t > sch_period:
+                    sch_t = (sch_t%sch_period) - 1
+                    print("Reset")
+                    i = 0
+
+                t = time.monotonic_ns()
+                if task_pattern[i][1] <= sch_t:
+                    print("Running Task {} at {}".format(task_pattern[i][0], sch_t))
+                    run_task(config["tasks"][task_pattern[i][0]], config["devices"])
+                    i = ((i+1)%n)
+
 
 #import main_sch as m;d,s,p = m.single_setup("config.txt", [[("read_sensor", 0)], 100000]);m.run_schedule(d,s,p)
 #m.run_task(d["tasks"]["read_sensor"], d["devices"]);
@@ -325,4 +371,5 @@ def run_schedule(config, task_pattern, sch_period):
 #import main_sch as m;d,s,p = m.setup("Case_4/", schedule=[[("read_sensor", 0),("write_screen", 100000), ("write_screen_text", 200000)], 300000]);m.run_schedule(d,s,p)
 #import main_sch as m;d,s,p = m.setup("Case_4/", step=1000);m.run_schedule(d,s,p)
 #import main_sch as m;d,s,p = m.setup("Case_5/", step=1000);m.run_schedule(d,s,p)
+#import main_sch as m;d,s,p = m.setup("Case_6/", step=1000);m.run_schedule(d,s,p)
 #import os; os.listdir("/"); os.rename("/boot.py", "/boot.bak")
