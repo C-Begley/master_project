@@ -27,6 +27,25 @@ def add_default_dict(data,default):
                 data[key] = default[key]
     return data
 
+def calculate_duration(task):
+    if task["duration"] != None:
+        return task
+    else:
+        duration = 0
+        #If file load, timing estimate per byte * data_size
+
+        #If array load, timing estimate per byte *data_size
+
+        #If recived data_size * baud
+
+        #If send, size(data) * baud
+
+        #If pass_through, for item in pass_through, data_size * baud
+
+        #If file storage, timing estimate per byte * data_size
+
+        #If array_storage, timing estimate per byte *data_size
+
 def Com_SPI(data = None, data_size=None, CLK = board.SCK, MOSI=None, MISO= None, slave = None, write_value = 0,  baud=100000, polarity=0, phase=0, bits=8,
             front_data_padding = 0, back_data_padding = 0, start= False, start_value = 0, end = False, end_value = 0, delimiter=""):
 
@@ -80,7 +99,7 @@ def run_SPI(task, devices, data):
     if task["connection"]["receive"] or task["connection"]["send"]:
         res = Com_SPI(
             data_size = task["connection"]["data_size"],
-            data = task["connection"]["data"],
+            data = data,
             delimiter = task["connection"]["data_delimiter"],
             start = task["connection_settings"]["start"],
             start_value = task["connection_settings"]["start_value"],
@@ -101,7 +120,7 @@ def run_SPI(task, devices, data):
         if res != None:
             if task["connection"]["pass_through"]:
                 Com_SPI(
-                    data = task["connection"]["data"],
+                    data = res,
                     delimiter = task["connection"]["data_delimiter"],
                     start = task["connection_settings"]["start"],
                     start_value = task["connection_settings"]["start_value"],
@@ -152,7 +171,7 @@ def run_UART(task, devices, data):
     if task["connection"]["receive"] or task["connection"]["send"]:
         res = Com_UART(
                     data_size = task["connection"]["data_size"],
-                    data = task["connection"]["data"],
+                    data = data,
                     delimiter = task["connection"]["data_delimiter"],
                     start = task["connection_settings"]["start"],
                     start_value = task["connection_settings"]["start_value"],
@@ -201,14 +220,11 @@ def Com_I2C(addr, data = None, data_size = None, SDA = board.SDA, SCL = board.SC
     while not i2c.try_lock():
         pass
 
-    print(addr)
-    print(start_value)
-
     if start:
         i2c.writeto(addr, bytes([int(str(start_value),2)]))
 
     if data_size != None:
-        recieved = bytearray(data_size)
+        received = bytearray(data_size)
         i2c.readfrom_into(addr, received)
         if delimiter != "":
             received = str(res)[2:-1].split(delimiter)
@@ -232,7 +248,7 @@ def run_I2C(task, devices, data):
         res = Com_I2C(
             devices[task["connection"]["device_name"]]["I2C"]["address"],
             data_size = task["connection"]["data_size"],
-            data = task["connection"]["data"],
+            data = data,
             delimiter = task["connection"]["data_delimiter"],
             start = task["connection_settings"]["start"],
             start_value = task["connection_settings"]["start_value"],
@@ -422,9 +438,9 @@ def run_schedule(config, task_pattern, sch_period):
             if t + INCREMENT <= time.monotonic_ns():
                 sch_t = (sch_t+((time.monotonic_ns()-t)//INCREMENT))
 
-                if sch_t > sch_period:
+                if sch_t >= sch_period:
+                    print("Reset at {}".format(sch_t))
                     sch_t = (sch_t%sch_period) - 1
-                    print("Reset")
                     i = 0
 
                 t = time.monotonic_ns()
@@ -439,7 +455,8 @@ def run_schedule(config, task_pattern, sch_period):
 #import main_sch as m;d,s,p = m.setup("Case_1/", schedule=[[("read_sensor", 0)], 300000]);m.run_schedule(d,s,p)
 #import main_sch as m;d,s,p = m.setup("Case_2/", schedule=[[("read_sensor", 0),("write_screen", 100000)], 300000]);m.run_schedule(d,s,p)
 #import main_sch as m;d,s,p = m.setup("Case_3/", schedule=[[("read_sensor", 0),("write_screen", 100000)], 300000]);m.run_schedule(d,s,p)
-#import main_sch as m;d,s,p = m.setup("Case_4/", schedule=[[("read_sensor", 0),("write_screen", 100000), ("write_screen_text", 200000)], 300000]);m.run_schedule(d,s,p)
+#import main_sch as m;d,s,p = m.setup("Case_3/", schedule=[[("read_sensor", 0),("write_screen", 100000)], 300000]);m.run_schedule(d,s,p)
+#import main_sch as m;d,s,p = m.setup("Case_3/",step=1000);m.run_schedule(d,s,p)
 #import main_sch as m;d,s,p = m.setup("Case_4/", step=1000);m.run_schedule(d,s,p)
 #import main_sch as m;d,s,p = m.setup("Case_5/", step=1000);m.run_schedule(d,s,p)
 #import main_sch as m;d,s,p = m.setup("Case_6/", step=1000);m.run_schedule(d,s,p)
