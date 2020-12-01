@@ -6,6 +6,7 @@
                                "device_name":"Coms",
                                "type": "I2C",
                                "send" : true,
+                               "data_size" 2
                 },
                 "connection_settings" : {
                                          "front_data_padding" : 1,                        
