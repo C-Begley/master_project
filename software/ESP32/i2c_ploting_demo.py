@@ -3,7 +3,7 @@ import display
 import machine
 import time
 
-s = machine.I2C(1,mode=machine.I2C.SLAVE, sda=25, scl=26)
+s = machine.I2C(1,mode=machine.I2C.SLAVE, sda=21, scl=22)
 
 scr = display.TFT()
 scr.init(scr.ILI9341, miso=13, mosi=12, clk=14, cs=15,dc=0,rst_pin=27, backl_pin=2, backl_on=1, bgr=True)
