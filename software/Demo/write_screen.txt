@@ -6,7 +6,7 @@
                                "device_name":"Coms",
                                "type": "I2C",
                                "send" : true,
-                               "data_size" 2
+                               "data_size" 6
                 },
                 "connection_settings" : {
                                          "front_data_padding" : 1,                        
@@ -14,7 +14,7 @@
                 "load_settings" : {
                                    "load_from_buf": true,
                                    "load_address_start" : 0,
-                                   "load_address_end" : 2,
+                                   "load_address_end" : 6,
                 }
  }
 }

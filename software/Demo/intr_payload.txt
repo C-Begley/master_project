@@ -1,0 +1,3 @@
+{
+ "payload_int" : {"task_type": "interupt", "interupt_function_name": "payload_int", "period":6000, "duration":1000, "pins":["D19", "D18"], "arguements":[]}
+}

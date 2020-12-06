@@ -8,10 +8,7 @@ from pins import pins
 import digitalio
 import custom_functions as cf
 
-#Custom function
-import custom_functions
-
-BUFFERSIZE = 5
+BUFFERSIZE = 7
 BUFFER = bytearray(BUFFERSIZE)
 INCREMENT = 1000000 #Offsets timing, 1000000000 = 1 sec per tick, 1000000 = 1 millisecond, 1000 = microsecond, 1 = nanosecond
 
@@ -27,24 +24,45 @@ def add_default_dict(data,default):
                 data[key] = default[key]
     return data
 
-def calculate_duration(task):
+def calculate_duration(task, devices):
     if task["duration"] != None:
         return task
     else:
+        send_data_size = len(task["connection"]["data"])
+        receive_data_size = task["connection"]["data_size"]
         duration = 0
-        #If file load, timing estimate per byte * data_size
+        baud = devices[task["connection"]["device"]]["baud"]
 
-        #If array load, timing estimate per byte *data_size
+        #IF I2C, addtional duration
+        #IF UART additional duration
+        #IF SPI additional duration
 
-        #If recived data_size * baud
+        if task["load_settings"]["load_from_file"]:
+            send_data_size = task["load_settings"]["file_data_size"]
+            duration += send_data_size * FILE_READ
 
-        #If send, size(data) * baud
+        if task["load_settings"]["load_from_buffer"]:
+            send_data_size = (task["load_settings"]["load_address_end"]-task["load_settings"]["load_address_start"])
+            duration +=  send_data_size* BUFFER_READ
 
-        #If pass_through, for item in pass_through, data_size * baud
+        if task["connection"]["receive"]:
+            duration += baud * receive_data_size
 
-        #If file storage, timing estimate per byte * data_size
+        if task["connection"]["send"]:
+            duration += baud * send_data_size
 
-        #If array_storage, timing estimate per byte *data_size
+        if task["connection"]["pass_through"]:
+            baud = devices[task["connection"]["pass_location"]]["baud"]
+            duration += baud * receive_data_size
+
+        if task["store_settings"]["store_to_file"]:
+            if task["store_settings"]["append"]:
+                duration += receive_data_size * FILE_APPEND
+            else:
+                duration += receive_data_size * FILE_WRITE
+
+        if task["store_settings"]["store_to_buf"]:
+            duration += receive_data_size* BUFFER_WRITE
 
 def Com_SPI(data = None, data_size=None, CLK = board.SCK, MOSI=None, MISO= None, slave = None, write_value = 0,  baud=100000, polarity=0, phase=0, bits=8,
             front_data_padding = 0, back_data_padding = 0, start= False, start_value = 0, end = False, end_value = 0, delimiter=""):
@@ -66,14 +84,14 @@ def Com_SPI(data = None, data_size=None, CLK = board.SCK, MOSI=None, MISO= None,
 
     if data_size != None and data:
         send = bytearray(front_data_padding) + bytearray(data) + bytearray(back_data_padding)
-        recieved = bytearray(data_size)
-        write_readinto(recieved, send)
+        received = bytearray(data_size)
+        write_readinto(received, send)
         if delimiter != "":
             received = str(res)[2:-1].split(delimiter)
 
     elif data_size != None:
-        recieved = bytearray(data_size)
-        received = spi.readinto(recieved, write_value=write_value)
+        received = bytearray(data_size)
+        received = spi.readinto(received, write_value=write_value)
         if delimiter != "":
             received = str(res)[2:-1].split(delimiter)
 
@@ -156,7 +174,6 @@ def Com_UART(data = None, data_size=None, baud=9600, bits = 8, parity=None, stop
 
     if data:
         send = bytearray(front_data_padding) + bytearray(data) + bytearray(back_data_padding)
-        print(send)
         uart.write(send)
 
     if end:
@@ -214,14 +231,22 @@ def run_UART(task, devices, data):
 #Reads data and then writes
 def Com_I2C(addr, data = None, data_size = None, SDA = board.SDA, SCL = board.SCL, frequency=400000, timeout=255,front_data_padding = 0, back_data_padding = 0,  start= False, start_value = 0,
             end = False, end_value = 0, delimiter = ""):
-    #i2c = board.I2C()
     i2c = busio.I2C(SCL, SDA, frequency=frequency, timeout=timeout)
     received = None
     while not i2c.try_lock():
         pass
 
+    '''
+    #TODO
+    if set_addr:
+        bytearray(int(addr//255)+1)
+        for i in range(int(addr//255)+1):
+            pass
+    '''
+
     if start:
         i2c.writeto(addr, bytes([int(str(start_value),2)]))
+        #i2c.writeto(addr, bin(int(str(start_value),2)))
 
     if data_size != None:
         received = bytearray(data_size)
@@ -235,7 +260,6 @@ def Com_I2C(addr, data = None, data_size = None, SDA = board.SDA, SCL = board.SC
 
     if end:
         i2c.writeto(addr, bytes([int(str(end_value),2)]))
-
 
     i2c.unlock()
     i2c.deinit()
@@ -257,7 +281,8 @@ def run_I2C(task, devices, data):
             front_data_padding = task["connection_settings"]["front_data_padding"],
             back_data_padding = task["connection_settings"]["back_data_padding"],
             SDA= pins[devices[task["connection"]["device_name"]]["I2C"]["SDA"]],
-            SCL= pins[devices[task["connection"]["device_name"]]["I2C"]["SCL"]]
+            SCL= pins[devices[task["connection"]["device_name"]]["I2C"]["SCL"]],
+            frequency = devices[task["connection"]["device_name"]]["I2C"]["baud"]
             )
         if res != None:
             if task["connection"]["pass_through"]:
@@ -271,34 +296,31 @@ def run_I2C(task, devices, data):
                 end=task["connection_settings"]["end"],
                 end_value = task["connection_settings"]["end_value"],
                 SDA= pins[devices[task["connection"]["pass_location"]]["I2C"]["SDA"]],
-                SCL= pins[devices[task["connection"]["pass_location"]]["I2C"]["SCL"]]
+                SCL= pins[devices[task["connection"]["pass_location"]]["I2C"]["SCL"]],
+                frequency = devices[task["connection"]["pass_location"]]["I2C"]["baud"]
                 )
-
     return res
 
-def single_setup(filename, schedule= None, step = 1):
-    with open(filename) as fp:
-        data = json.loads(fp.read())
-    if schedule == None:
-        if not sch.possible_schedule(data["tasks"]):
-            print("Cannot be scheduled")
-            return False
+def handle_interupt(task, devices):
+    intr_pins = []
+    for pin in task["pins"]:
+         p = digitalio.DigitalInOut(pins[pin])
+         p.switch_to_input()
+         intr_pins.append(p)
 
-        task_pattern, sch_period = sch.schedule_order(data["tasks"],step=step)
-        return data, task_pattern, sch_period
+    cf.func_dict[task["interupt_function_name"]](BUFFER,devices, intr_pins,task)
 
-    else:
-        return data, schedule[0], schedule[1]
+    for pin in intr_pins:
+        pin.deinit()
 
-
-def setup(folder, schedule= None, default_data="default_data.txt", default_device="default_devices.txt", step=1):
+def setup(folder, schedule= None, devices = "devices.txt", default_data="default_data.txt", default_device="default_devices.txt", default_interupt = "default_interupt.txt", step=1):
     if folder[-1] != "/":
         folder += "/"
     files = os.listdir(folder)
 
     data = {"devices" : {}, "tasks": {}}
 
-    with open(folder + "devices.txt") as f:
+    with open(folder + devices) as f:
         data["devices"] = json.loads(f.read())
 
     with open(folder+default_device) as f:
@@ -306,11 +328,34 @@ def setup(folder, schedule= None, default_data="default_data.txt", default_devic
     for device in data["devices"]:
         data["devices"][device] = add_default_dict(data["devices"][device], devices_default)
 
-    files.remove("devices.txt")
+    files.remove(devices)
     files.remove(default_data)
     files.remove(default_device)
+    files.remove(default_interupt)
+
+
+    interupt_files = []
+
+    for f in files:
+        if f[-4:] == ".txt":
+            if len(f) > 6:
+                if f[:5] == "intr_":
+                    print(f)
+                    interupt_files.append(f)
 
     files = [f for f in files if f[-4:] == ".txt"]
+
+    for f in interupt_files:
+        files.remove(f)
+
+    with open(folder + default_interupt) as f:
+        interupt_default = json.loads(f.read())
+
+    for file in interupt_files:
+        with open(folder+file) as f:
+            interupts = json.loads(f.read())
+            for interupt in interupts:
+                data["tasks"]["intr_" + interupt] = add_default_dict(interupts[interupt], interupt_default)
 
     with open(folder+default_data) as f:
         data_default = json.loads(f.read())
@@ -319,6 +364,7 @@ def setup(folder, schedule= None, default_data="default_data.txt", default_devic
         with open(folder + file) as f:
             tasks = json.loads(f.read())
             for task in tasks:
+                print(task)
                 data["tasks"][task] = add_default_dict(tasks[task], data_default)
 
     if schedule == None:
@@ -335,95 +381,97 @@ def setup(folder, schedule= None, default_data="default_data.txt", default_devic
 def run_task(task, devices):
     active_pins = []
 
-    #Set pins high and low
-    if "pins" in task:
-        for pin in task["pins"]["pin_high"]:
-            p = digitalio.DigitalInOut(pins[pin])
-            p.direction = digitalio.Direction.OUTPUT
-            p.value = True
-            active_pins.append(p)
-
-        for pin in task["pins"]["pin_low"]:
-            p = digitalio.DigitalInOut(pins[pin])
-            p.direction = digitalio.Direction.OUTPUT
-            p.value = False
-            active_pins.append(p)
-
-    data = task["connection"]["data"]
-    #Load data
-    if task["load_settings"]["load_from_buf"]:
-        global BUFFER, BUFFERSIZE
-        print(BUFFER)
-        data = BUFFER[task["load_settings"]["load_address_start"]:task["load_settings"]["load_address_end"]]
-
-    if task["load_settings"]["load_from_file"]:
-        i = 0
-        lines = []
-        with open(task["load_settings"]["load_file"]) as f:
-            if not task["load_settings"]["disjoint"]:
-                i = task["load_settings"]["start_line"]
-                while(i < task["load_settings"]["end_line"]):
-                    lines.append(f.readline())
-                    i +=1
-            else:
-                current_l = 0
-                l = task["load_settings"]["lines"][current_l]
-                while (i <= task["load_settings"]["lines"][-1]):
-                    if l == i:
-                        lines.append(f.readline().strip())
-                        current_l += 1
-                        if current_l >= len(task["load_settings"]["lines"]):
-                            break
-                        l = task["load_settings"]["lines"][current_l]
-                    else:
-                        f.readline()
-                    i += 1
-        data = task["load_settings"]["line_delimiter"].join(lines)
-
-    if task["custom_function"]["custom"] and task["custom_function"]["before"]:
-        global BUFFER
-        data = cf.func_dict[task["custom_function"]["custom_function_name"]](BUFFER,active_pins,data,task["custom_function"]["arguements"])
-
-    #Run task
-    if task["connection"]["type"] == "I2C":
-        data = run_I2C(task, devices,data )
-    elif task["connection"]["type"] == "UART":
-        data = run_UART(task, devices, data)
-    elif task["connection"]["type"] == "SPI":
-        data = run_SPI(task, devices, data)
-    elif task["connection"]["type"] == "CAN":
-        print("CAN not implemented")
+    if task["task_type"] == "interupt":
+        handle_interupt(task, devices)
     else:
-        print("Unknown connection type {}".format(task["connection"]["type"]))
-        return None
+        #Set pins high and low
+        if "pins" in task:
+            for pin in task["pins"]["pin_high"]:
+                p = digitalio.DigitalInOut(pins[pin])
+                p.direction = digitalio.Direction.OUTPUT
+                p.value = True
+                active_pins.append(p)
 
-    if task["custom_function"]["custom"] and task["custom_function"]["after"]:
-        global BUFFER
-        data = cf.func_dict[task["custom_function"]["custom_function_name"]](BUFFER,active_pins,data,task["custom_function"]["arguements"] )
+            for pin in task["pins"]["pin_low"]:
+                p = digitalio.DigitalInOut(pins[pin])
+                p.direction = digitalio.Direction.OUTPUT
+                p.value = False
+                active_pins.append(p)
 
-    #Store data
-    if task["store_settings"]["store_to_buf"]:
-        global BUFFER, BUFFERSIZE
-        addr = task["store_settings"]["store_address"]
-        if data != None:
-            for byte in data:
-                BUFFER[addr] = byte
-                addr += 1
-                if addr >= BUFFERSIZE:
-                    print("Storage overflow")
-                    break
+        data = task["connection"]["data"]
+        #Load data
+        if task["load_settings"]["load_from_buf"]:
+            global BUFFER, BUFFERSIZE
+            data = BUFFER[task["load_settings"]["load_address_start"]:task["load_settings"]["load_address_end"]]
 
-    elif task["store_settings"]["store_to_file"]:
-        if task["store_settings"]["file_append"]:
-            with open(task["store_settings"]["store_file"], "a") as f:
-                f.write(res)
-                f.write("\n")
+        if task["load_settings"]["load_from_file"]:
+            i = 0
+            lines = []
+            with open(task["load_settings"]["load_file"]) as f:
+                if not task["load_settings"]["disjoint"]:
+                    i = task["load_settings"]["start_line"]
+                    while(i < task["load_settings"]["end_line"]):
+                        lines.append(f.readline())
+                        i +=1
+                else:
+                    current_l = 0
+                    l = task["load_settings"]["lines"][current_l]
+                    while (i <= task["load_settings"]["lines"][-1]):
+                        if l == i:
+                            lines.append(f.readline().strip())
+                            current_l += 1
+                            if current_l >= len(task["load_settings"]["lines"]):
+                                break
+                            l = task["load_settings"]["lines"][current_l]
+                        else:
+                            f.readline()
+                        i += 1
+            data = task["load_settings"]["line_delimiter"].join(lines)
+
+        if task["custom_function"]["custom"] and task["custom_function"]["before"]:
+            global BUFFER
+            data = cf.func_dict[task["custom_function"]["custom_function_name"]](BUFFER,active_pins,data,task["custom_function"]["arguements"])
+
+        #Run task
+        if task["connection"]["type"] == "I2C":
+            data = run_I2C(task, devices,data )
+        elif task["connection"]["type"] == "UART":
+            data = run_UART(task, devices, data)
+        elif task["connection"]["type"] == "SPI":
+            data = run_SPI(task, devices, data)
+        elif task["connection"]["type"] == "CAN":
+            print("CAN not implemented")
         else:
-            with open(task["store_settings"]["store_file"], "w") as f:
-                f.write(res)
+            print("Unknown connection type {}".format(task["connection"]["type"]))
+            return None
 
-    for pin in active_pins:
-        pin.deinit()
+        if task["custom_function"]["custom"] and task["custom_function"]["after"]:
+            global BUFFER
+            data = cf.func_dict[task["custom_function"]["custom_function_name"]](BUFFER,active_pins,data,task["custom_function"]["arguements"] )
+
+        #Store data
+        if task["store_settings"]["store_to_buf"]:
+            global BUFFER, BUFFERSIZE
+            addr = task["store_settings"]["store_address"]
+            if data != None:
+                for byte in data:
+                    BUFFER[addr] = byte
+                    addr += 1
+                    if addr >= BUFFERSIZE:
+                        print("Storage overflow")
+                        break
+
+        elif task["store_settings"]["store_to_file"]:
+            if task["store_settings"]["file_append"]:
+                with open(task["store_settings"]["store_file"], "a") as f:
+                    f.write(res)
+                    f.write("\n")
+            else:
+                with open(task["store_settings"]["store_file"], "w") as f:
+                    f.write(res)
+
+        for pin in active_pins:
+            pin.deinit()
 
 def run_schedule(config, task_pattern, sch_period):
     global INCREMENT
@@ -461,4 +509,5 @@ def run_schedule(config, task_pattern, sch_period):
 #import main_sch as m;d,s,p = m.setup("Case_5/", step=1000);m.run_schedule(d,s,p)
 #import main_sch as m;d,s,p = m.setup("Case_6/", step=1000);m.run_schedule(d,s,p)
 #import main_sch as m;d,s,p = m.setup("Case_7/", step=1000);m.run_schedule(d,s,p)
+#import main_sch as m;d,s,p = m.setup("Demo/", step=1000);m.run_schedule(d,s,p)
 #import os; os.listdir("/"); os.rename("/boot.py", "/boot.bak")
