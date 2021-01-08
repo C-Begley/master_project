@@ -1,0 +1,13 @@
+{
+ "write_screen":{                         
+                "duration": 1000,
+                "period":   3000,
+                "custom_function": {
+                                 "custom" : true,
+                                 "before" : true,
+                                 "after"  : false,
+                                 "custom_function_name": "print_test",
+                                 "arguements" : [5]
+                }                
+ }
+}

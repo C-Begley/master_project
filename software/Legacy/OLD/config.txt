@@ -1,0 +1,51 @@
+{ 
+ "devices": {
+                 "Coms" : {"I2C":32},
+                 "Payload" : {"I2C":33}
+  },
+  "tasks":{
+           "read_sensor":{
+                          "deadline" : "Soft",                             
+                          "duration": 1000000,
+                          "period":   3000000,
+                          "connection" :{
+                                         "device_name":"Payload",
+                                         "type": "I2C",
+                                         "send" : false,
+                                         "data" : "",
+                                         "recieve": true,
+                                         "data_size" : 2,
+                                         "pass_through" : true,
+                                         "pass_location" : "Coms"
+                          },
+                          "connection_settings" : {
+                                                 "front_data_padding" : 1,
+                                                 "back_data_padding" : 0,
+                                                 "start": true,
+                                                 "start_value": 0,
+                                                 "end": false,
+                                                 "end_value": 0
+                          },
+                          "load_settings" : {
+                                             "load_from_buf": false,
+                                             "load_address" : 0,
+                                             "load_from_file": false,
+                                             "load_file" : ""
+                          },
+                          "store_settings":{
+                                            "store_to_buf": false,
+                                            "store_address" : 0 ,
+                                            "store_to_file": false,
+                                            "store_files" : "",
+                                            "file_append" : true
+                          },
+                          "pins":{
+                                 "default": true,
+                                 "alt_pins": [],
+                                 "pin_high" : [],
+                                 "pin_low"  : []
+                          }
+           
+           }
+          }      
+}
