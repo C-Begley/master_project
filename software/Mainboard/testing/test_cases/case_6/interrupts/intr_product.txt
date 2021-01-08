@@ -1,0 +1,1 @@
+{"intr_product":{"interrupt_function": "case6_mul_data", "period":1, "duration":5, "pins":["D12"], "arguments":[7]}}

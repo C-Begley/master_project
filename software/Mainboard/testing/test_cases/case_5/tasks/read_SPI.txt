@@ -1,0 +1,14 @@
+{
+ "read_SPI":{                          
+                "duration": 2,
+                "period":   3,
+                "connection" :{
+                    "type": "SPI",
+                    "receive": true,
+                    "data_size" : 8,
+},
+ "store_settings":{
+                   "store_to_file": true,
+                   "store_file" : "testing/test_cases/case_5/files/test_data_spi.txt",
+ }
+}

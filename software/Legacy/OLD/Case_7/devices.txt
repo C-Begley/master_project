@@ -1,3 +1,0 @@
-{
- "Sensor" : {"SPI":{"MISO":"D50", "MOSI":"D51","slave":"D12"}},
-}

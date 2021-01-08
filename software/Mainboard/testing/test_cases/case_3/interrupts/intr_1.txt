@@ -1,0 +1,5 @@
+{
+ "intr_1":{                          
+                "duration": 1,
+                "period":   4,
+}

@@ -1,0 +1,15 @@
+{
+ "read_SPI":{                          
+                "duration": 2,
+                "period":   3,
+                "connection" :{
+                    "type": "SPI",
+                    "receive": true,
+                    "data_size" : 8,
+ },
+ "store_settings":{
+                   "store_to_buf": true,
+                   "store_address" : 0 ,
+ },
+
+}

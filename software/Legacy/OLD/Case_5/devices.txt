@@ -1,4 +1,0 @@
-{
- "Coms" : {"I2C":{"address":32}, "UART":{"baud":115942}},
- "Payload" : {"I2C":{"address":33}, "UART":{"RX":"D15", "TX":"D14", "baud":115942, "timeout=5"}}
-}
