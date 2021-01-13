@@ -166,11 +166,10 @@ class scheduler():
 
     def setup(self,base_folder = "", tasks_folder = "tasks/", devices_folder ="devices/", interrupts_folder  = "interrupts/",
               schedule= None, devices = "devices.txt", default_task="default_task.txt",
-              default_device="default_devices.txt", default_interrupt = "default_interrupt.txt", step=1):
+              default_device="default_devices.txt", default_interrupt = "default_interrupt.txt", step=1, margin = 0.2):
 
         interrupt_files = os.listdir(base_folder+interrupts_folder)
         task_files = os.listdir(base_folder+tasks_folder)
-
         if default_task in task_files:
                     task_files.remove(default_task)
 
@@ -206,9 +205,10 @@ class scheduler():
                     tasks = json.loads(f.read())
                     for task in tasks:
                         if "duration" in tasks[task]:
-                            if tasks[task]["duration"] == None:
-                                tasks[task]["duration"] = com.calculate_duration(tasks[task], self.devices)
-
+                            if tasks[task]["duration"] == "estimate":
+                                tasks[task]["duration"] = com.calculate_duration(tasks[task], self.devices, margin=margin)
+                            elif tasks[task]["duration"] == "run":
+                                tasks[task]["duration"] = self.calculate_run(tasks[task], margin=margin)
                         self.tasks[task] = com.add_default_dict(tasks[task], tasks_default)
                         self.tasks[task]["task_type"] = "task"
 
@@ -223,7 +223,9 @@ class scheduler():
 
     def run_task(self,task_name):
         task = self.tasks[task_name]
+        self.task_run(task)
 
+    def task_run(self, task):
         active_pins = []
 
         if task["task_type"] == "interrupt":
@@ -279,7 +281,7 @@ class scheduler():
 
             #Run task
             if task["connection"]["type"] == "I2C":
-                data = self.run_I2C(task,data )
+                data = self.run_I2C(task,data)
             elif task["connection"]["type"] == "UART":
                 data = self.run_UART(task, data)
             elif task["connection"]["type"] == "SPI":
@@ -357,6 +359,20 @@ class scheduler():
         self.devices = None
         self.task_pattern = None
         self.sch_period = None
+
+    def calculate_run(self, task, margin = 0.2):
+        t1 = time.monotonic_ns()
+        try:
+            self.task_run(task)
+        except:
+            print("Error running task, estimating duration instead")
+            return com.calculate_duration(tasks[task], self.devices)
+        t2 = time.monotonic_ns()
+        duration = t1-t2
+        duration = (1+margin) * duration
+        return duration
+
+
 
 def testing():
     global com

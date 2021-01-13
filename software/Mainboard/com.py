@@ -28,21 +28,21 @@ def calculate_duration(task, devices, margin = 0.2):
         duration = 0
         if task["connection"] == "I2C":
             baud = devices[task["connection"]["device"]]["frequency"]
-            duration += 0#I2C setup and tear down time
+            duration += 12700000
         elif task["connection"] == "SPI":
             baud = devices[task["connection"]["device"]]["baud"]
-            duration += 0#I2C setup and tear down time
+            duration += 113000
         elif tasks["connection"] == "UART":
             baud = devices[task["connection"]["device"]]["baud"]
-            duration += 0#I2C setup and tear down time
+            duration += 100000
 
         if task["load_settings"]["load_from_file"]:
             send_data_size = task["load_settings"]["file_data_size"]
-            duration += send_data_size * FILE_READ
+            duration += (send_data_size * 400) + 550000
 
         if task["load_settings"]["load_from_buffer"]:
             send_data_size = (task["load_settings"]["load_address_end"]-task["load_settings"]["load_address_start"])
-            duration += send_data_size* BUFFER_READ
+            duration += (send_data_size * 11100) + 49000
 
         if task["connection"]["receive"]:
             duration += baud * receive_data_size
@@ -56,12 +56,12 @@ def calculate_duration(task, devices, margin = 0.2):
 
         if task["store_settings"]["store_to_file"]:
             if task["store_settings"]["append"]:
-                duration += receive_data_size * FILE_APPEND
+                duration += (receive_data_size * 29000) + 122000000
             else:
-                duration += receive_data_size * FILE_WRITE
+                duration += (receive_data_size * 10000) + 1093200000
 
         if task["store_settings"]["store_to_buf"]:
-            duration += receive_data_size* BUFFER_WRITE
+            duration += (receive_data_size* 11100) + 49000
 
         return duration *(1+ margin)
 
