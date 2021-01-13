@@ -18,6 +18,7 @@ class Payload():
         self.i2c = machine.I2C(1, mode=machine.I2C.SLAVE, sda=sda, scl=scl, slave_addr = addr)
         self.i2c.callback(self.i2c_cb, self.i2c.CBTYPE_ADDR | self.i2c.CBTYPE_TXDATA)
         self.led_count = [0,0,0] 
+        self.i2c_cb([machine.I2C.CBTYPE_ADDR, 0])
         if splash:
             self.splash()
 

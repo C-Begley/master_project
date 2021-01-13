@@ -1,7 +1,0 @@
-{"I2C":{"address":32, "SDA":"D20", "SCL":"D21", "baud":100000}, 
- 
- "UART":{"RX":"D0", "TX":"D1", "baud":9600, "bits":8, "parity":null, "stop":1, "timeout":1, 
-         "receiver_buffer_size":64}
- 
-  "SPI" : {"CLK":"D52", "MOSI":null, "MISO":null, "slave":null, "write_value" : 0,  "baud":100000, "polarity":0, "phase":0, "bits":8}
-}

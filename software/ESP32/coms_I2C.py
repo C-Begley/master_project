@@ -5,8 +5,8 @@ import time
 
 
 class Coms():
-    def __init__(self, sda=21, scl=22, miso=13, mosi=12, clk=14,cs=15,dc=0,rst_pin=27, backl_pin=2, backl_on=1, bgr=True, ):
-        self.i2c = machine.I2C(1,mode=machine.I2C.SLAVE, sda=21, scl=22)
+    def __init__(self, sda=21, scl=22, miso=13, mosi=12, clk=14,cs=15,dc=0,rst_pin=27, backl_pin=2, backl_on=1, bgr=True, tx=17, rx=16, buffer_size=333, timeout=5000, addr=32):
+        self.i2c = machine.I2C(1,mode=machine.I2C.SLAVE, sda=21, scl=22, slave_addr = addr)
         self.scr = display.TFT()
         self.scr.init(self.scr.ILI9341, miso=13, mosi=12, clk=14, cs=15,dc=0,rst_pin=27, backl_pin=2, backl_on=1, bgr=True)
         self.scr.clear(self.scr.BLACK)
@@ -17,24 +17,22 @@ class Coms():
         self.t = 10
         self.current = 0
         self.current_y = self.height//2
-        self.maxi = 0
-        self.mini = 99
         self.i2c.callback(self.i2c_cb, self.i2c.CBTYPE_ADDR|self.i2c.CBTYPE_RXDATA)
         self.origin = (10, self.height//2)
         self.background = self.scr.BLACK
         self.foreground = self.scr.GREEN
         self.flipped = False
-        self.uart = machine.UART(1, tx=17, rx=16, timeout = 5000, buffer_size = 333)
+        self.uart = machine.UART(1, tx=tx, rx=rx, timeout = timeout, buffer_size = buffer_size)
         self.uart.callback(self.uart.CBTYPE_DATA, self.uart_cb,data_len=3)
-        self.setup()
-  
+        self.reset([])
+
     def setup(self):
         self.scr.clear(self.background)
         self.t = 10
         self.current = 0
         self.scr.line(10,10, 10, self.height//2, self.foreground)
         self.scr.line(10,self.origin[1], self.width-10, self.origin[1], self.foreground)
-        text = "Random value mesaurement"
+        text = "Temperature  mesaurement (Celsius)"
         t_width = self.scr.textWidth(text)
         self.scr.text((self.width//2-t_width//2),self.origin[1]+20, text)
         text = "Current value:    "
@@ -43,16 +41,20 @@ class Coms():
         text = "Highest value:    "
         t_width = self.scr.textWidth(text)
         self.scr.text((self.width//2-t_width//2),self.origin[1]+60, text)
+        self.scr.text((self.width//2+38),self.origin[1]+80, " " + str(self.maxi))
         text = "Lowest value:     "
         t_width = self.scr.textWidth(text)
         self.scr.text((self.width//2-t_width//2),self.origin[1]+80, text)
- 
+        self.scr.text((self.width//2+38),self.origin[1]+80, " " + str(self.mini))
+
     def reset(self, call):
         self.current_y = self.height//2
-        self.maxi = 0
-        self.mini = 99
-
+        self.maxi = ""
+        self.mini = "" 
         self.setup()
+        self.maxi = -float("inf")
+        self.mini = float("inf")
+        print("Reset")
 
     def flip(self,call):
         if self.flipped:
@@ -63,7 +65,6 @@ class Coms():
             self.flipped = True
         self.setup()
         print("Flipped")
-
 
     def invert(self,call):
         temp = self.foreground
@@ -76,13 +77,6 @@ class Coms():
         print("UART Recieved {}".format(call))
 
     def uart_cb(self,call):
-        print(call)
-        print(call[0])
-        print(call[1])
-        print(call[2])
-        print(type(call[0]))
-        print(type(call[1]))
-        print(type(call[2]))
         print(call[2][2])
         if call[2][0] == "1":
             self.flip(call)
@@ -115,12 +109,12 @@ class Coms():
         self.scr.textClear((self.width//2+41),self.origin[1]+40, " " + str(self.current))
         self.scr.text((self.width//2+41),self.origin[1]+40, " " + str(new))
 
-        if new > self.maxi:
+        if new >= self.maxi:
             self.scr.textClear((self.width//2+41),self.origin[1]+60, " " + str(self.maxi))
             self.scr.text((self.width//2+41),self.origin[1]+60, " " + str(new))
             self.maxi = new
 
-        if new < self.mini:
+        if new <= self.mini:
             self.scr.textClear((self.width//2+38),self.origin[1]+80, " " + str(self.mini))
             self.scr.text((self.width//2+38),self.origin[1]+80, " " + str(new))
             self.mini = new

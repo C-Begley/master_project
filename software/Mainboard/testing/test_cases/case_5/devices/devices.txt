@@ -1,0 +1,4 @@
+{
+ "Coms" : {"I2C":{"address":32}},
+ "Payload" : {"I2C":{"address":33}}
+}

@@ -1,0 +1,12 @@
+{
+ "sum_data":{                          
+                "duration": 2,
+                "period":   3,
+ "custom_function": {
+                 "custom" : true,
+                 "before" : true,
+                 "custom_function_name": "case6_sum_data",
+                 "arguments" : [7]
+  } 
+
+}
