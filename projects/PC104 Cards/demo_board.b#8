@@ -4015,6 +4015,7 @@ MEng 2020-21</text>
 <rectangle x1="79.2125" y1="75.8875" x2="79.4625" y2="75.9125" layer="21"/>
 <rectangle x1="71.5625" y1="75.9125" x2="71.7125" y2="75.9375" layer="21"/>
 <rectangle x1="79.2625" y1="75.9125" x2="79.4125" y2="75.9375" layer="21"/>
+<text x="59.775" y="68.45" size="0.05" layer="21" font="vector">C:/Users/Conor Begley/Documents/EAGLE/projects/FlatSat/glasgow-caledonian-logoW.bmp</text>
 </plain>
 <libraries>
 <library name="M22-6013005">
@@ -4036,126 +4037,126 @@ MEng 2020-21</text>
 <wire x1="59.2" y1="-1.3" x2="59.2" y2="7.1" width="0.2" layer="21"/>
 <wire x1="59.2" y1="7.1" x2="-1.3" y2="7.1" width="0.2" layer="21"/>
 <wire x1="-1.3" y1="7.1" x2="-1.3" y2="0" width="0.2" layer="21"/>
-<pad name="P$1" x="0" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$2" x="2" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$3" x="4" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$4" x="6" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$5" x="8" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$6" x="10" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$7" x="12" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$8" x="14" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$9" x="16" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$10" x="18" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$11" x="20" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$12" x="22" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$13" x="24" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$14" x="26" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$15" x="28" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$16" x="30" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$17" x="32" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$18" x="34" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$19" x="36" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$20" x="38" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$21" x="40" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$22" x="42" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$23" x="44" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$24" x="46" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$25" x="48" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$26" x="50" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$27" x="52" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$28" x="54" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$29" x="56" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$30" x="58" y="6" drill="0.9" diameter="1.3"/>
-<pad name="P$31" x="0" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$32" x="2" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$33" x="4" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$34" x="6" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$35" x="8" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$36" x="10" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$37" x="12" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$38" x="14" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$39" x="16" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$40" x="18" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$41" x="20" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$42" x="22" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$43" x="24" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$44" x="26" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$45" x="28" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$46" x="30" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$47" x="32" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$48" x="34" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$49" x="36" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$50" x="38" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$51" x="40" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$52" x="42" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$53" x="44" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$54" x="46" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$55" x="48" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$56" x="50" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$57" x="52" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$58" x="54" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$59" x="56" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$60" x="58" y="4" drill="0.9" diameter="1.3"/>
-<pad name="P$61" x="0" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$62" x="2" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$63" x="4" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$64" x="6" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$65" x="8" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$66" x="10" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$67" x="12" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$68" x="14" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$69" x="16" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$70" x="18" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$71" x="20" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$72" x="22" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$73" x="24" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$74" x="26" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$75" x="28" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$76" x="30" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$77" x="32" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$78" x="34" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$79" x="36" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$80" x="38" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$81" x="40" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$82" x="42" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$83" x="44" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$84" x="46" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$85" x="48" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$86" x="50" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$87" x="52" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$88" x="54" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$89" x="56" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$90" x="58" y="2" drill="0.9" diameter="1.3"/>
-<pad name="P$91" x="0" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$92" x="2" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$93" x="4" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$94" x="6" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$95" x="8" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$96" x="10" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$97" x="12" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$98" x="14" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$99" x="16" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$100" x="18" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$101" x="20" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$102" x="22" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$103" x="24" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$104" x="26" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$105" x="28" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$106" x="30" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$107" x="32" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$108" x="34" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$109" x="36" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$110" x="38" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$111" x="40" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$112" x="42" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$113" x="44" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$114" x="46" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$115" x="48" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$116" x="50" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$117" x="52" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$118" x="54" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$119" x="56" y="0" drill="0.9" diameter="1.3"/>
-<pad name="P$120" x="58" y="0" drill="0.9" diameter="1.3"/>
+<pad name="P$1" x="0" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$2" x="2" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$3" x="4" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$4" x="6" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$5" x="8" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$6" x="10" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$7" x="12" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$8" x="14" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$9" x="16" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$10" x="18" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$11" x="20" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$12" x="22" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$13" x="24" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$14" x="26" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$15" x="28" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$16" x="30" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$17" x="32" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$18" x="34" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$19" x="36" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$20" x="38" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$21" x="40" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$22" x="42" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$23" x="44" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$24" x="46" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$25" x="48" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$26" x="50" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$27" x="52" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$28" x="54" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$29" x="56" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$30" x="58" y="6" drill="0.505" diameter="0.9"/>
+<pad name="P$31" x="0" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$32" x="2" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$33" x="4" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$34" x="6" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$35" x="8" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$36" x="10" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$37" x="12" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$38" x="14" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$39" x="16" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$40" x="18" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$41" x="20" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$42" x="22" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$43" x="24" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$44" x="26" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$45" x="28" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$46" x="30" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$47" x="32" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$48" x="34" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$49" x="36" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$50" x="38" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$51" x="40" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$52" x="42" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$53" x="44" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$54" x="46" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$55" x="48" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$56" x="50" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$57" x="52" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$58" x="54" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$59" x="56" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$60" x="58" y="4" drill="0.505" diameter="0.9"/>
+<pad name="P$61" x="0" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$62" x="2" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$63" x="4" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$64" x="6" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$65" x="8" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$66" x="10" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$67" x="12" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$68" x="14" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$69" x="16" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$70" x="18" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$71" x="20" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$72" x="22" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$73" x="24" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$74" x="26" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$75" x="28" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$76" x="30" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$77" x="32" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$78" x="34" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$79" x="36" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$80" x="38" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$81" x="40" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$82" x="42" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$83" x="44" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$84" x="46" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$85" x="48" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$86" x="50" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$87" x="52" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$88" x="54" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$89" x="56" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$90" x="58" y="2" drill="0.505" diameter="0.9"/>
+<pad name="P$91" x="0" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$92" x="2" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$93" x="4" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$94" x="6" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$95" x="8" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$96" x="10" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$97" x="12" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$98" x="14" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$99" x="16" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$100" x="18" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$101" x="20" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$102" x="22" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$103" x="24" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$104" x="26" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$105" x="28" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$106" x="30" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$107" x="32" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$108" x="34" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$109" x="36" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$110" x="38" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$111" x="40" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$112" x="42" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$113" x="44" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$114" x="46" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$115" x="48" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$116" x="50" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$117" x="52" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$118" x="54" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$119" x="56" y="0" drill="0.505" diameter="0.9"/>
+<pad name="P$120" x="58" y="0" drill="0.505" diameter="0.9"/>
 </package>
 </packages>
 </library>
@@ -4193,6 +4194,7 @@ MEng 2020-21</text>
 <wire x1="13.95" y1="27.15" x2="13.95" y2="-27.25" width="0.127" layer="51"/>
 <wire x1="13.95" y1="-27.25" x2="-13.95" y2="-27.25" width="0.127" layer="51"/>
 <wire x1="-13.95" y1="-27.25" x2="-13.95" y2="27.15" width="0.127" layer="51"/>
+<wire x1="-13.95" y1="-27.25" x2="-13.95" y2="27.15" width="0.127" layer="21"/>
 <wire x1="-13.95" y1="27.15" x2="13.95" y2="27.15" width="0.127" layer="21"/>
 <wire x1="13.95" y1="27.15" x2="13.95" y2="-27.25" width="0.127" layer="21"/>
 <wire x1="13.95" y1="-27.25" x2="-13.95" y2="-27.25" width="0.127" layer="21"/>
@@ -4204,44 +4206,44 @@ MEng 2020-21</text>
 <text x="-14.0146" y="-28.9302" size="1.27133125" layer="27">&gt;VALUE</text>
 <circle x="-14.6" y="19.9" radius="0.14" width="0.28" layer="27"/>
 <circle x="-14.6" y="19.9" radius="0.14" width="0.28" layer="51"/>
-<pad name="1" x="-12.7" y="19.76" drill="1.04" shape="long"/>
-<pad name="2" x="-12.7" y="17.22" drill="1.04" shape="long"/>
-<pad name="19" x="-12.7" y="-25.96" drill="1.04" shape="long"/>
-<pad name="3" x="-12.7" y="14.68" drill="1.04" shape="long"/>
-<pad name="4" x="-12.7" y="12.14" drill="1.04" shape="long"/>
-<pad name="5" x="-12.7" y="9.6" drill="1.04" shape="long"/>
-<pad name="6" x="-12.7" y="7.06" drill="1.04" shape="long"/>
-<pad name="7" x="-12.7" y="4.52" drill="1.04" shape="long"/>
-<pad name="8" x="-12.7" y="1.98" drill="1.04" shape="long"/>
-<pad name="9" x="-12.7" y="-0.56" drill="1.04" shape="long"/>
-<pad name="10" x="-12.7" y="-3.1" drill="1.04" shape="long"/>
-<pad name="11" x="-12.7" y="-5.64" drill="1.04" shape="long"/>
-<pad name="12" x="-12.7" y="-8.18" drill="1.04" shape="long"/>
-<pad name="13" x="-12.7" y="-10.72" drill="1.04" shape="long"/>
-<pad name="14" x="-12.7" y="-13.26" drill="1.04" shape="long"/>
-<pad name="15" x="-12.7" y="-15.8" drill="1.04" shape="long"/>
-<pad name="16" x="-12.7" y="-18.34" drill="1.04" shape="long"/>
-<pad name="17" x="-12.7" y="-20.88" drill="1.04" shape="long"/>
-<pad name="18" x="-12.7" y="-23.42" drill="1.04" shape="long"/>
-<pad name="20" x="12.7" y="19.76" drill="1.04" shape="long"/>
-<pad name="21" x="12.7" y="17.22" drill="1.04" shape="long"/>
-<pad name="22" x="12.7" y="14.68" drill="1.04" shape="long"/>
-<pad name="23" x="12.7" y="12.14" drill="1.04" shape="long"/>
-<pad name="24" x="12.7" y="9.6" drill="1.04" shape="long"/>
-<pad name="25" x="12.7" y="7.06" drill="1.04" shape="long"/>
-<pad name="26" x="12.7" y="4.52" drill="1.04" shape="long"/>
-<pad name="27" x="12.7" y="1.98" drill="1.04" shape="long"/>
-<pad name="28" x="12.7" y="-0.56" drill="1.04" shape="long"/>
-<pad name="29" x="12.7" y="-3.1" drill="1.04" shape="long"/>
-<pad name="30" x="12.7" y="-5.64" drill="1.04" shape="long"/>
-<pad name="31" x="12.7" y="-8.18" drill="1.04" shape="long"/>
-<pad name="32" x="12.7" y="-10.72" drill="1.04" shape="long"/>
-<pad name="33" x="12.7" y="-13.26" drill="1.04" shape="long"/>
-<pad name="34" x="12.7" y="-15.8" drill="1.04" shape="long"/>
-<pad name="35" x="12.7" y="-18.34" drill="1.04" shape="long"/>
-<pad name="36" x="12.7" y="-20.88" drill="1.04" shape="long"/>
-<pad name="37" x="12.7" y="-23.42" drill="1.04" shape="long"/>
-<pad name="38" x="12.7" y="-25.96" drill="1.04" shape="long"/>
+<pad name="1" x="-12.7" y="19.76" drill="1.04" shape="square"/>
+<pad name="2" x="-12.7" y="17.22" drill="1.04"/>
+<pad name="19" x="-12.7" y="-25.96" drill="1.04"/>
+<pad name="3" x="-12.7" y="14.68" drill="1.04"/>
+<pad name="4" x="-12.7" y="12.14" drill="1.04"/>
+<pad name="5" x="-12.7" y="9.6" drill="1.04"/>
+<pad name="6" x="-12.7" y="7.06" drill="1.04"/>
+<pad name="7" x="-12.7" y="4.52" drill="1.04"/>
+<pad name="8" x="-12.7" y="1.98" drill="1.04"/>
+<pad name="9" x="-12.7" y="-0.56" drill="1.04"/>
+<pad name="10" x="-12.7" y="-3.1" drill="1.04"/>
+<pad name="11" x="-12.7" y="-5.64" drill="1.04"/>
+<pad name="12" x="-12.7" y="-8.18" drill="1.04"/>
+<pad name="13" x="-12.7" y="-10.72" drill="1.04"/>
+<pad name="14" x="-12.7" y="-13.26" drill="1.04"/>
+<pad name="15" x="-12.7" y="-15.8" drill="1.04"/>
+<pad name="16" x="-12.7" y="-18.34" drill="1.04"/>
+<pad name="17" x="-12.7" y="-20.88" drill="1.04"/>
+<pad name="18" x="-12.7" y="-23.42" drill="1.04"/>
+<pad name="20" x="12.7" y="19.76" drill="1.04"/>
+<pad name="21" x="12.7" y="17.22" drill="1.04"/>
+<pad name="22" x="12.7" y="14.68" drill="1.04"/>
+<pad name="23" x="12.7" y="12.14" drill="1.04"/>
+<pad name="24" x="12.7" y="9.6" drill="1.04"/>
+<pad name="25" x="12.7" y="7.06" drill="1.04"/>
+<pad name="26" x="12.7" y="4.52" drill="1.04"/>
+<pad name="27" x="12.7" y="1.98" drill="1.04"/>
+<pad name="28" x="12.7" y="-0.56" drill="1.04"/>
+<pad name="29" x="12.7" y="-3.1" drill="1.04"/>
+<pad name="30" x="12.7" y="-5.64" drill="1.04"/>
+<pad name="31" x="12.7" y="-8.18" drill="1.04"/>
+<pad name="32" x="12.7" y="-10.72" drill="1.04"/>
+<pad name="33" x="12.7" y="-13.26" drill="1.04"/>
+<pad name="34" x="12.7" y="-15.8" drill="1.04"/>
+<pad name="35" x="12.7" y="-18.34" drill="1.04"/>
+<pad name="36" x="12.7" y="-20.88" drill="1.04"/>
+<pad name="37" x="12.7" y="-23.42" drill="1.04"/>
+<pad name="38" x="12.7" y="-25.96" drill="1.04"/>
 </package>
 </packages>
 </library>
@@ -5463,7 +5465,7 @@ design rules under a new name.</description>
 <param name="mdCopperDimension" value="40mil"/>
 <param name="mdDrill" value="6mil"/>
 <param name="mdSmdStop" value="0mil"/>
-<param name="msWidth" value="0.15mm"/>
+<param name="msWidth" value="0.2mm"/>
 <param name="msDrill" value="0.35mm"/>
 <param name="msMicroVia" value="9.99mm"/>
 <param name="msBlindViaRatio" value="0.5"/>
@@ -5646,25 +5648,25 @@ design rules under a new name.</description>
 <attribute name="MOUSER_PART_NUMBER" value="" x="-13.49" y="143.82" size="1.778" layer="27" display="off"/>
 <attribute name="MOUSER_PRICE-STOCK" value="" x="-13.49" y="143.82" size="1.778" layer="27" display="off"/>
 </element>
-<element name="LED1" library="TLHR4400-AS12Z" package="TLHR4400AS12Z" value="TLHR4400-AS12Z" x="69.55" y="3.825" smashed="yes" rot="R90">
-<attribute name="DESCRIPTION" value="Standard LEDs - Through Hole Red 13mcd; 3mm 612-625nm; 2V Typ" x="63.85" y="-0.175" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="HEIGHT" value="6.1mm" x="63.85" y="-0.175" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER_NAME" value="Vishay" x="63.85" y="-0.175" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="TLHR4400-AS12Z" x="63.85" y="-0.175" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MOUSER_PART_NUMBER" value="78-TLHR4400-AS12Z" x="63.85" y="-0.175" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.co.uk/ProductDetail/Vishay-Semiconductors/TLHR4400-AS12Z?qs=nQ9vpdMXC6AwxmxsGskxgg%3D%3D" x="63.85" y="-0.175" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="69.45" y="10.729" size="1.27" layer="25" rot="R90" align="center"/>
-<attribute name="VALUE" x="67.75" y="16.671" size="1.27" layer="27" rot="R270" align="center"/>
+<element name="LED1" library="TLHR4400-AS12Z" package="TLHR4400AS12Z" value="TLHR4400-AS12Z" x="71.3" y="3.5" smashed="yes" rot="R90">
+<attribute name="DESCRIPTION" value="Standard LEDs - Through Hole Red 13mcd; 3mm 612-625nm; 2V Typ" x="65.6" y="-0.5" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="HEIGHT" value="6.1mm" x="65.6" y="-0.5" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="Vishay" x="65.6" y="-0.5" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="TLHR4400-AS12Z" x="65.6" y="-0.5" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="78-TLHR4400-AS12Z" x="65.6" y="-0.5" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.co.uk/ProductDetail/Vishay-Semiconductors/TLHR4400-AS12Z?qs=nQ9vpdMXC6AwxmxsGskxgg%3D%3D" x="65.6" y="-0.5" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="73.4" y="11.754" size="1.27" layer="25" rot="R90" align="center"/>
+<attribute name="VALUE" x="69.5" y="16.346" size="1.27" layer="27" rot="R270" align="center"/>
 </element>
-<element name="LED2" library="TLHR4400-AS12Z" package="TLHR4400AS12Z" value="TLHR4400-AS12Z" x="60.4" y="3.875" smashed="yes" rot="R90">
-<attribute name="DESCRIPTION" value="Standard LEDs - Through Hole Red 13mcd; 3mm 612-625nm; 2V Typ" x="54.7" y="-4.125" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="HEIGHT" value="6.1mm" x="54.7" y="-4.125" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER_NAME" value="Vishay" x="54.7" y="-4.125" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="TLHR4400-AS12Z" x="54.7" y="-4.125" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MOUSER_PART_NUMBER" value="78-TLHR4400-AS12Z" x="54.7" y="-4.125" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.co.uk/ProductDetail/Vishay-Semiconductors/TLHR4400-AS12Z?qs=nQ9vpdMXC6AwxmxsGskxgg%3D%3D" x="54.7" y="-4.125" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="60.275" y="10.804" size="1.27" layer="25" rot="R90" align="center"/>
-<attribute name="VALUE" x="61.2" y="-6.871" size="1.27" layer="27" rot="R90" align="center"/>
+<element name="LED2" library="TLHR4400-AS12Z" package="TLHR4400AS12Z" value="TLHR4400-AS12Z" x="61.6" y="3.5" smashed="yes" rot="R90">
+<attribute name="DESCRIPTION" value="Standard LEDs - Through Hole Red 13mcd; 3mm 612-625nm; 2V Typ" x="55.9" y="-4.5" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="HEIGHT" value="6.1mm" x="55.9" y="-4.5" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="Vishay" x="55.9" y="-4.5" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="TLHR4400-AS12Z" x="55.9" y="-4.5" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="78-TLHR4400-AS12Z" x="55.9" y="-4.5" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.co.uk/ProductDetail/Vishay-Semiconductors/TLHR4400-AS12Z?qs=nQ9vpdMXC6AwxmxsGskxgg%3D%3D" x="55.9" y="-4.5" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="60" y="-3.146" size="1.27" layer="25" rot="R90" align="center"/>
+<attribute name="VALUE" x="62.4" y="-7.246" size="1.27" layer="27" rot="R90" align="center"/>
 </element>
 <element name="LED3" library="TLHR4400-AS12Z" package="TLHR4400AS12Z" value="TLHR4400-AS12Z" x="51.5" y="3.9" smashed="yes" rot="R90">
 <attribute name="DESCRIPTION" value="Standard LEDs - Through Hole Red 13mcd; 3mm 612-625nm; 2V Typ" x="45.8" y="-8.1" size="1.778" layer="27" rot="R90" display="off"/>
@@ -5673,7 +5675,7 @@ design rules under a new name.</description>
 <attribute name="MANUFACTURER_PART_NUMBER" value="TLHR4400-AS12Z" x="45.8" y="-8.1" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MOUSER_PART_NUMBER" value="78-TLHR4400-AS12Z" x="45.8" y="-8.1" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.co.uk/ProductDetail/Vishay-Semiconductors/TLHR4400-AS12Z?qs=nQ9vpdMXC6AwxmxsGskxgg%3D%3D" x="45.8" y="-8.1" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="51.35" y="10.704" size="1.27" layer="25" rot="R90" align="center"/>
+<attribute name="NAME" x="61.6" y="12.854" size="1.27" layer="25" rot="R90" align="center"/>
 <attribute name="VALUE" x="48.9" y="17.454" size="1.27" layer="27" rot="R90" align="center"/>
 </element>
 <element name="R1" library="rcl" library_urn="urn:adsk.eagle:library:334" package="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="260" x="71.4" y="21.1" smashed="yes" rot="R90">
@@ -5694,13 +5696,13 @@ design rules under a new name.</description>
 <attribute name="SPICEPREFIX" value="R" x="49.7" y="9.1" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="50.1826" y="13.3256" size="0.9906" layer="28" ratio="10" rot="MR270"/>
 </element>
-<element name="THERM" library="varistor" library_urn="urn:adsk.eagle:library:410" package="R-5" package3d_urn="urn:adsk.eagle:package:30591/1" value="THERMISTOR-5" x="5.225" y="27.3" smashed="yes" rot="R270">
-<attribute name="NAME" x="7.659" y="24.08" size="1.27" layer="25" ratio="10" rot="R90"/>
-<attribute name="POPULARITY" value="0" x="-22.375" y="39.3" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="VALUE" x="2.939" y="29.84" size="1.27" layer="27" ratio="10" rot="R270"/>
+<element name="R4" library="varistor" library_urn="urn:adsk.eagle:library:410" package="R-5" package3d_urn="urn:adsk.eagle:package:30591/1" value="THERMISTOR-5" x="5.1" y="27.2" smashed="yes" rot="R270">
+<attribute name="NAME" x="6.116" y="28.47" size="1.27" layer="25" ratio="10" rot="R270"/>
+<attribute name="POPULARITY" value="0" x="-22.5" y="39.2" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="VALUE" x="2.814" y="29.74" size="1.27" layer="27" ratio="10" rot="R270"/>
 </element>
 <element name="R5" library="rcl" library_urn="urn:adsk.eagle:library:334" package="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="130" x="5.1" y="37.8" smashed="yes" rot="R90">
-<attribute name="NAME" x="3.7046" y="36.935" size="0.9906" layer="25" ratio="10" rot="R90"/>
+<attribute name="NAME" x="3.8046" y="35.26" size="0.9906" layer="25" ratio="10" rot="R90"/>
 <attribute name="POPULARITY" value="79" x="12.9" y="16.7" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SPICEPREFIX" value="R" x="12.9" y="16.7" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="4.8826" y="45.1744" size="0.9906" layer="27" ratio="10" rot="R90"/>
@@ -5722,7 +5724,7 @@ design rules under a new name.</description>
 <attribute name="MANUFACTURER_PART_NUMBER" value="200MSP1T2B3M2QE" x="72.5" y="49.8" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MOUSER_PART_NUMBER" value="612-200MSP1T2B3M2QE" x="72.5" y="49.8" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.co.uk/ProductDetail/E-Switch/200MSP1T2B3M2QE?qs=xQzBpF%2FAFTpv05oBtdIhow%3D%3D" x="72.5" y="49.8" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="NAME" x="74.4" y="48.623" size="1.27" layer="25" rot="R270" align="center"/>
+<attribute name="NAME" x="72.5" y="44.548" size="1.27" layer="25" rot="R270" align="center"/>
 <attribute name="VALUE" x="72.5" y="44.548" size="1.27" layer="27" rot="R270" align="center"/>
 </element>
 <element name="S3" library="200MSP1T2B3M2QE" package="200MSP1T2B3M2QE" value="200MSP1T2B3M2QE" x="83.3" y="45.3" smashed="yes" rot="R270">
@@ -5732,23 +5734,30 @@ design rules under a new name.</description>
 <attribute name="MANUFACTURER_PART_NUMBER" value="200MSP1T2B3M2QE" x="83.3" y="52" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MOUSER_PART_NUMBER" value="612-200MSP1T2B3M2QE" x="83.3" y="52" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.co.uk/ProductDetail/E-Switch/200MSP1T2B3M2QE?qs=xQzBpF%2FAFTpv05oBtdIhow%3D%3D" x="83.3" y="52" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="NAME" x="85.175" y="48.598" size="1.27" layer="25" rot="R270" align="center"/>
+<attribute name="NAME" x="80.3" y="44.148" size="1.27" layer="25" rot="R270" align="center"/>
 <attribute name="VALUE" x="83.3" y="44.548" size="1.27" layer="27" rot="R270" align="center"/>
 </element>
 </elements>
 <signals>
 <signal name="3V3">
 <contactref element="J2" pad="P$44"/>
-<contactref element="THERM" pad="2"/>
-<wire x1="15.2125" y1="87.8125" x2="2.4" y2="75" width="0.2" layer="1"/>
-<wire x1="2.4" y1="75" x2="2.4" y2="27.585" width="0.2" layer="1"/>
-<wire x1="5.225" y1="24.76" x2="2.4" y2="27.585" width="0.2" layer="1"/>
-<wire x1="15.2125" y1="87.8125" x2="15.4278" y2="87.8125" width="0.2" layer="1"/>
-<wire x1="15.4278" y1="87.8125" x2="15.4363" y2="87.821" width="0.17" layer="1"/>
-<wire x1="41.440525" y1="88.06" x2="41.75" y2="88.06" width="0.17" layer="1"/>
-<wire x1="41.75" y1="88.06" x2="42.51" y2="88.82" width="0.17" layer="1"/>
-<wire x1="41.201525" y1="87.821" x2="41.440525" y2="88.06" width="0.17" layer="1"/>
-<wire x1="15.4363" y1="87.821" x2="41.201525" y2="87.821" width="0.17" layer="1"/>
+<contactref element="R4" pad="2"/>
+<wire x1="42.51" y1="88.82" x2="41.8424" y2="88.1524" width="0.2" layer="1"/>
+<wire x1="41.8424" y1="88.1524" x2="41.454025" y2="88.1524" width="0.2" layer="1"/>
+<wire x1="41.026625" y1="87.725" x2="38.075" y2="87.725" width="0.2" layer="1"/>
+<wire x1="41.454025" y1="88.1524" x2="41.026625" y2="87.725" width="0.2" layer="1"/>
+<wire x1="38.075" y1="87.725" x2="37.55" y2="87.2" width="0.2" layer="1"/>
+<wire x1="37.425" y1="85.75" x2="26.125" y2="85.75" width="0.2" layer="1"/>
+<wire x1="26.125" y1="85.75" x2="25.575" y2="85.2" width="0.2" layer="1"/>
+<wire x1="25.575" y1="85.2" x2="25.575" y2="84.225" width="0.2" layer="1"/>
+<wire x1="25.575" y1="84.225" x2="15.425" y2="74.075" width="0.2" layer="1"/>
+<wire x1="15.425" y1="74.075" x2="9.8" y2="74.075" width="0.2" layer="1"/>
+<wire x1="9.8" y1="74.075" x2="2.275" y2="66.55" width="0.2" layer="1"/>
+<wire x1="2.275" y1="66.55" x2="2.275" y2="26.25" width="0.2" layer="1"/>
+<wire x1="2.275" y1="26.25" x2="3.865" y2="24.66" width="0.2" layer="1"/>
+<wire x1="3.865" y1="24.66" x2="5.1" y2="24.66" width="0.2" layer="1"/>
+<wire x1="37.55" y1="87.2" x2="37.55" y2="85.875" width="0.2" layer="1"/>
+<wire x1="37.55" y1="85.875" x2="37.425" y2="85.75" width="0.2" layer="1"/>
 </signal>
 <signal name="5V">
 <contactref element="U2" pad="19"/>
@@ -5758,9 +5767,8 @@ design rules under a new name.</description>
 <wire x1="11.4" y1="15.4" x2="11.4" y2="85.3" width="0.2" layer="16"/>
 <wire x1="11.4" y1="85.3" x2="13.9" y2="87.8" width="0.2" layer="16"/>
 <wire x1="13.9" y1="87.8" x2="13.9" y2="93.9" width="0.2" layer="16"/>
-<wire x1="41.5" y1="93.9" x2="41.5" y2="92.3" width="0.2" layer="16"/>
-<wire x1="41.5" y1="92.3" x2="41.5" y2="89.81" width="0.17" layer="16"/>
-<wire x1="41.5" y1="89.81" x2="40.51" y2="88.82" width="0.17" layer="16"/>
+<wire x1="41.5" y1="93.9" x2="41.5" y2="89.81" width="0.2" layer="16"/>
+<wire x1="41.5" y1="89.81" x2="40.51" y2="88.82" width="0.2" layer="16"/>
 <wire x1="13.9" y1="93.9" x2="41.5" y2="93.9" width="0.2" layer="16"/>
 </signal>
 <signal name="GND3">
@@ -5771,7 +5779,10 @@ design rules under a new name.</description>
 <wire x1="14.1" y1="28.4" x2="14.1" y2="32.61" width="0.2" layer="1"/>
 <wire x1="18.01" y1="27.3" x2="15.2" y2="27.3" width="0.2" layer="1"/>
 <wire x1="15.2" y1="27.3" x2="14.1" y2="28.4" width="0.2" layer="1"/>
-<wire x1="14.6" y1="88.275" x2="14.6" y2="30.71" width="0.4" layer="16"/>
+<wire x1="32.51" y1="88.82" x2="31.48" y2="89.85" width="0.4" layer="16"/>
+<wire x1="31.48" y1="89.85" x2="15.75" y2="89.85" width="0.4" layer="16"/>
+<wire x1="15.75" y1="89.85" x2="14.6" y2="88.7" width="0.4" layer="16"/>
+<wire x1="14.6" y1="88.7" x2="14.6" y2="30.71" width="0.4" layer="16"/>
 <wire x1="14.6" y1="30.71" x2="18.01" y2="27.3" width="0.4" layer="16"/>
 <wire x1="18.01" y1="27.3" x2="35.7" y2="9.61" width="0.4" layer="16"/>
 <wire x1="35.7" y1="9.61" x2="35.7" y2="9.6" width="0.4" layer="16"/>
@@ -5786,10 +5797,6 @@ design rules under a new name.</description>
 <wire x1="51.5" y1="24.81" x2="61.6" y2="24.81" width="0.4" layer="16"/>
 <wire x1="61.6" y1="24.81" x2="61.7" y2="24.91" width="0.4" layer="16"/>
 <wire x1="61.7" y1="24.91" x2="71.4" y2="24.91" width="0.4" layer="16"/>
-<wire x1="15.5202" y1="89.809" x2="31.521" y2="89.809" width="0.17" layer="16"/>
-<wire x1="31.521" y1="89.809" x2="32.51" y2="88.82" width="0.17" layer="16"/>
-<wire x1="15.5202" y1="89.809" x2="14.6" y2="88.8888" width="0.17" layer="16"/>
-<wire x1="14.6" y1="88.8888" x2="14.6" y2="88.275" width="0.17" layer="16"/>
 </signal>
 <signal name="GND2">
 <contactref element="J2" pad="P$7"/>
@@ -5798,7 +5805,9 @@ design rules under a new name.</description>
 <contactref element="J2" pad="P$41"/>
 <contactref element="U2" pad="26"/>
 <wire x1="43.41" y1="45.08" x2="59.5" y2="61.17" width="0.2" layer="1"/>
-<wire x1="59.5" y1="61.17" x2="59.5" y2="83.15" width="0.2" layer="1"/>
+<wire x1="59.5" y1="61.17" x2="59.5" y2="89.8" width="0.2" layer="1"/>
+<wire x1="59.5" y1="89.8" x2="37.49" y2="89.8" width="0.2" layer="1"/>
+<wire x1="37.49" y1="89.8" x2="36.51" y2="88.82" width="0.2" layer="1"/>
 <contactref element="S2" pad="3"/>
 <contactref element="S3" pad="3"/>
 <contactref element="S1" pad="3"/>
@@ -5808,17 +5817,13 @@ design rules under a new name.</description>
 <wire x1="50.88" y1="40.22" x2="49" y2="38.34" width="0.2" layer="16"/>
 <wire x1="49" y1="38.34" x2="49" y2="32.3" width="0.2" layer="16"/>
 <wire x1="49" y1="32.3" x2="45.175" y2="28.475" width="0.2" layer="16"/>
-<wire x1="45.175" y1="28.475" x2="41.95" y2="28.475" width="0.2" layer="16"/>
-<wire x1="41.95" y1="28.475" x2="39.7" y2="30.725" width="0.2" layer="16"/>
-<wire x1="39.7" y1="30.725" x2="39.7" y2="41.3" width="0.2" layer="16"/>
+<wire x1="45.175" y1="28.475" x2="43.125" y2="28.475" width="0.2" layer="16"/>
+<wire x1="43.125" y1="28.475" x2="39.7" y2="31.9" width="0.2" layer="16"/>
+<wire x1="39.7" y1="31.9" x2="39.7" y2="41.3" width="0.2" layer="16"/>
 <wire x1="39.7" y1="41.3" x2="45.5" y2="41.3" width="0.2" layer="16"/>
 <wire x1="45.5" y1="41.3" x2="45.5" y2="43.89" width="0.2" layer="16"/>
 <wire x1="45.5" y1="43.89" x2="44.31" y2="45.08" width="0.2" layer="16"/>
 <wire x1="44.31" y1="45.08" x2="43.41" y2="45.08" width="0.2" layer="16"/>
-<wire x1="59.5" y1="83.15" x2="59.5" y2="89.65" width="0.17" layer="1"/>
-<wire x1="59.341" y1="89.809" x2="37.499" y2="89.809" width="0.17" layer="1"/>
-<wire x1="37.499" y1="89.809" x2="36.51" y2="88.82" width="0.17" layer="1"/>
-<wire x1="59.5" y1="89.65" x2="59.341" y2="89.809" width="0.17" layer="1"/>
 </signal>
 <signal name="GND5">
 <contactref element="J2" pad="P$11"/>
@@ -5846,16 +5851,14 @@ design rules under a new name.</description>
 <contactref element="S3" pad="1"/>
 <contactref element="S2" pad="1"/>
 <contactref element="S1" pad="1"/>
-<wire x1="67.55" y1="82.725" x2="67.55" y2="51.45" width="0.4064" layer="16"/>
+<wire x1="67.55" y1="89.225" x2="67.55" y2="51.45" width="0.4064" layer="16"/>
 <wire x1="61.4" y1="45.3" x2="67.55" y2="51.45" width="0.4064" layer="16"/>
+<wire x1="67.55" y1="89.225" x2="66.975" y2="89.8" width="0.4064" layer="16"/>
+<wire x1="66.975" y1="89.8" x2="43" y2="89.8" width="0.4064" layer="16"/>
+<wire x1="43" y1="89.8" x2="42.51" y2="90.29" width="0.4064" layer="16"/>
+<wire x1="42.51" y1="90.29" x2="42.51" y2="90.82" width="0.4064" layer="16"/>
 <wire x1="61.4" y1="45.3" x2="72.5" y2="45.3" width="0.4064" layer="16"/>
 <wire x1="72.5" y1="45.3" x2="83.3" y2="45.3" width="0.4064" layer="16"/>
-<wire x1="42.51" y1="90.82" x2="42.51" y2="90.265" width="0.17" layer="16"/>
-<wire x1="67.521" y1="89.2076625" x2="67.521" y2="82.754" width="0.17" layer="16"/>
-<wire x1="67.521" y1="82.754" x2="67.55" y2="82.725" width="0.17" layer="16"/>
-<wire x1="66.8976625" y1="89.831" x2="67.521" y2="89.2076625" width="0.17" layer="16"/>
-<wire x1="42.51" y1="90.265" x2="42.944" y2="89.831" width="0.17" layer="16"/>
-<wire x1="42.944" y1="89.831" x2="66.8976625" y2="89.831" width="0.17" layer="16"/>
 </signal>
 <signal name="5V1">
 <contactref element="J2" pad="P$13"/>
@@ -5866,12 +5869,11 @@ design rules under a new name.</description>
 <signal name="THERM">
 <contactref element="U2" pad="15"/>
 <contactref element="R5" pad="1"/>
-<contactref element="THERM" pad="1"/>
-<wire x1="5.1" y1="33.99" x2="5.225" y2="33.865" width="0.2" layer="1"/>
-<wire x1="5.225" y1="33.865" x2="5.225" y2="29.84" width="0.2" layer="1"/>
-<wire x1="5.225" y1="29.84" x2="10.21" y2="29.84" width="0.2" layer="1"/>
+<contactref element="R4" pad="1"/>
+<wire x1="5.1" y1="33.99" x2="5.1" y2="29.74" width="0.2" layer="1"/>
+<wire x1="5.1" y1="29.74" x2="10.31" y2="29.74" width="0.2" layer="1"/>
 <wire x1="15.29" y1="24.76" x2="18.01" y2="24.76" width="0.2" layer="1"/>
-<wire x1="10.21" y1="29.84" x2="15.29" y2="24.76" width="0.2" layer="1"/>
+<wire x1="10.31" y1="29.74" x2="15.29" y2="24.76" width="0.2" layer="1"/>
 </signal>
 <signal name="SDA">
 <contactref element="U2" pad="25"/>
@@ -5881,21 +5883,17 @@ design rules under a new name.</description>
 <wire x1="46.7" y1="34.1" x2="46.7" y2="44.33" width="0.2" layer="16"/>
 <wire x1="46.7" y1="44.33" x2="43.41" y2="47.62" width="0.2" layer="16"/>
 <wire x1="43.41" y1="47.62" x2="57.5" y2="61.71" width="0.2" layer="1"/>
-<wire x1="57.5" y1="61.71" x2="57.5" y2="83.2" width="0.2" layer="1"/>
+<wire x1="57.5" y1="61.71" x2="57.5" y2="87.675" width="0.2" layer="1"/>
+<wire x1="57.5" y1="87.675" x2="41.6" y2="87.675" width="0.2" layer="1"/>
+<wire x1="41.6" y1="87.675" x2="41.6" y2="86" width="0.2" layer="1"/>
 <contactref element="J2" pad="P$104"/>
-<wire x1="57.5" y1="83.2" x2="57.5" y2="87.25" width="0.17" layer="1"/>
-<wire x1="57.5" y1="87.25" x2="56.925" y2="87.825" width="0.17" layer="1"/>
-<wire x1="39.521" y1="84.4103375" x2="39.521" y2="85.2296625" width="0.17" layer="1"/>
-<wire x1="39.521" y1="84.4103375" x2="40.1003375" y2="83.831" width="0.17" layer="1"/>
-<wire x1="40.1003375" y1="83.831" x2="41.9696625" y2="83.831" width="0.17" layer="1"/>
-<wire x1="41.521" y1="87.2296625" x2="41.521" y2="86.4323375" width="0.17" layer="1"/>
-<wire x1="41.521" y1="86.4323375" x2="40.8976625" y2="85.809" width="0.17" layer="1"/>
-<wire x1="40.1003375" y1="85.809" x2="40.8976625" y2="85.809" width="0.17" layer="1"/>
-<wire x1="42.51" y1="84.82" x2="42.51" y2="84.3713375" width="0.17" layer="1"/>
-<wire x1="42.51" y1="84.3713375" x2="41.9696625" y2="83.831" width="0.17" layer="1"/>
-<wire x1="56.925" y1="87.825" x2="42.1163375" y2="87.825" width="0.17" layer="1"/>
-<wire x1="42.1163375" y1="87.825" x2="41.521" y2="87.2296625" width="0.17" layer="1"/>
-<wire x1="39.521" y1="85.2296625" x2="40.1003375" y2="85.809" width="0.17" layer="1"/>
+<wire x1="41.6" y1="86" x2="40.54943125" y2="86" width="0.2" layer="1"/>
+<wire x1="40.54943125" y1="86" x2="39.7035" y2="85.15406875" width="0.2" layer="1"/>
+<wire x1="39.7035" y1="84.0215" x2="40.125" y2="83.6" width="0.2" layer="1"/>
+<wire x1="40.125" y1="83.6" x2="42.175" y2="83.6" width="0.2" layer="1"/>
+<wire x1="39.7035" y1="85.15406875" x2="39.7035" y2="84.0215" width="0.2" layer="1"/>
+<wire x1="42.175" y1="83.6" x2="42.51" y2="83.935" width="0.2" layer="1"/>
+<wire x1="42.51" y1="83.935" x2="42.51" y2="84.82" width="0.2" layer="1"/>
 </signal>
 <signal name="TX">
 <contactref element="U2" pad="23"/>
@@ -5934,32 +5932,28 @@ design rules under a new name.</description>
 <signal name="SCL">
 <contactref element="U2" pad="22"/>
 <contactref element="U2" pad="30"/>
-<wire x1="43.41" y1="55.24" x2="55.518440625" y2="67.348440625" width="0.2" layer="1"/>
-<wire x1="55.518440625" y1="67.348440625" x2="55.518440625" y2="83.2" width="0.2" layer="1"/>
+<wire x1="43.41" y1="55.24" x2="55.568440625" y2="67.398440625" width="0.2" layer="1"/>
+<wire x1="55.568440625" y1="67.398440625" x2="55.568440625" y2="85.6539" width="0.2" layer="1"/>
 <wire x1="43.41" y1="34.92" x2="40.38" y2="34.92" width="0.2" layer="1"/>
 <wire x1="37.9" y1="37.4" x2="37.9" y2="50.2" width="0.2" layer="1"/>
 <wire x1="37.9" y1="50.2" x2="42.94" y2="55.24" width="0.2" layer="1"/>
 <wire x1="42.94" y1="55.24" x2="43.41" y2="55.24" width="0.2" layer="1"/>
 <wire x1="40.38" y1="34.92" x2="37.9" y2="37.4" width="0.2" layer="1"/>
 <contactref element="J2" pad="P$103"/>
-<wire x1="40.51" y1="84.82" x2="41.521" y2="85.831" width="0.17" layer="1"/>
-<wire x1="55.241340625" y1="85.831" x2="41.521" y2="85.831" width="0.17" layer="1"/>
-<wire x1="55.518440625" y1="85.5539" x2="55.518440625" y2="83.2" width="0.17" layer="1"/>
-<wire x1="55.518440625" y1="85.5539" x2="55.241340625" y2="85.831" width="0.17" layer="1"/>
+<wire x1="41.8195875" y1="85.6539" x2="41.7656875" y2="85.6" width="0.2" layer="1"/>
+<wire x1="41.29" y1="85.6" x2="40.51" y2="84.82" width="0.2" layer="1"/>
+<wire x1="41.7656875" y1="85.6" x2="41.29" y2="85.6" width="0.2" layer="1"/>
+<wire x1="55.568440625" y1="85.6539" x2="41.8195875" y2="85.6539" width="0.2" layer="1"/>
 </signal>
 <signal name="MISO">
 <contactref element="U2" pad="27"/>
 <contactref element="J2" pad="P$94"/>
 <wire x1="43.41" y1="42.54" x2="42.36" y2="42.54" width="0.2" layer="16"/>
-<wire x1="17.5261" y1="67.3739" x2="17.5261" y2="82.825" width="0.2" layer="16"/>
-<wire x1="42.36" y1="42.54" x2="17.5261" y2="67.3739" width="0.2" layer="16"/>
-<wire x1="18.1003375" y1="85.809" x2="17.521" y2="85.2296625" width="0.17" layer="16"/>
-<wire x1="17.521" y1="85.2296625" x2="17.521" y2="84.4103375" width="0.17" layer="16"/>
-<wire x1="22.51" y1="84.82" x2="21.9086625" y2="84.82" width="0.17" layer="16"/>
-<wire x1="21.9086625" y1="84.82" x2="20.9196625" y2="85.809" width="0.17" layer="16"/>
-<wire x1="20.9196625" y1="85.809" x2="18.1003375" y2="85.809" width="0.17" layer="16"/>
-<wire x1="17.5261" y1="82.825" x2="17.5261" y2="84.4052375" width="0.17" layer="16"/>
-<wire x1="17.521" y1="84.4103375" x2="17.5261" y2="84.4052375" width="0.17" layer="16"/>
+<wire x1="17.6011" y1="67.2989" x2="17.6011" y2="85.8" width="0.2" layer="16"/>
+<wire x1="17.6011" y1="85.8" x2="21.9" y2="85.8" width="0.2" layer="16"/>
+<wire x1="21.9" y1="85.8" x2="22.51" y2="85.19" width="0.2" layer="16"/>
+<wire x1="22.51" y1="85.19" x2="22.51" y2="84.82" width="0.2" layer="16"/>
+<wire x1="42.36" y1="42.54" x2="17.6011" y2="67.2989" width="0.2" layer="16"/>
 </signal>
 <signal name="3V32">
 <contactref element="U2" pad="1"/>
@@ -5984,9 +5978,20 @@ design rules under a new name.</description>
 </signal>
 <signal name="GPIO6">
 <contactref element="J2" pad="P$107"/>
+<wire x1="15.4511" y1="66.6239" x2="15.4511" y2="87.825" width="0.2" layer="16"/>
+<wire x1="15.4511" y1="87.825" x2="35.175" y2="87.825" width="0.2" layer="16"/>
+<wire x1="35.175" y1="87.825" x2="35.575" y2="88.225" width="0.2" layer="16"/>
+<wire x1="35.575" y1="88.225" x2="35.575" y2="92.525" width="0.2" layer="16"/>
+<wire x1="35.575" y1="92.525" x2="39.175" y2="92.525" width="0.2" layer="16"/>
+<wire x1="39.175" y1="92.525" x2="39.575" y2="92.125" width="0.2" layer="16"/>
+<wire x1="39.575" y1="92.125" x2="39.575" y2="85.85" width="0.2" layer="16"/>
+<wire x1="39.575" y1="85.85" x2="39.75" y2="85.675" width="0.2" layer="16"/>
+<wire x1="47.655" y1="85.675" x2="48.51" y2="84.82" width="0.2" layer="16"/>
+<wire x1="20.35" y1="60.12" x2="20.35" y2="61.725" width="0.2" layer="16"/>
+<wire x1="20.35" y1="61.725" x2="15.4511" y2="66.6239" width="0.2" layer="16"/>
+<wire x1="39.75" y1="85.675" x2="47.655" y2="85.675" width="0.2" layer="16"/>
 <contactref element="U2" pad="8"/>
-<wire x1="18.01" y1="42.54" x2="48.51" y2="73.04" width="0.2" layer="1"/>
-<wire x1="48.51" y1="73.04" x2="48.51" y2="84.82" width="0.2" layer="1"/>
+<wire x1="18.01" y1="42.54" x2="20.35" y2="60.12" width="0" layer="19" extent="16-16"/>
 </signal>
 <signal name="GPIO1">
 <contactref element="J2" pad="P$96"/>
@@ -6012,24 +6017,26 @@ design rules under a new name.</description>
 </signal>
 <signal name="GPIO">
 <contactref element="J2" pad="P$95"/>
+<wire x1="77.125" y1="93.525" x2="26.725" y2="93.525" width="0.2" layer="1"/>
+<wire x1="25.475" y1="85.785" x2="24.51" y2="84.82" width="0.2" layer="1"/>
+<wire x1="77.125" y1="71.175" x2="77.125" y2="93.525" width="0.2" layer="1"/>
+<wire x1="26.725" y1="93.525" x2="25.475" y2="92.275" width="0.2" layer="1"/>
+<wire x1="25.475" y1="92.275" x2="25.475" y2="85.785" width="0.2" layer="1"/>
 <contactref element="U2" pad="2"/>
-<wire x1="18.01" y1="57.78" x2="24.525" y2="64.295" width="0.2" layer="1"/>
-<wire x1="24.51" y1="84.82" x2="24.525" y2="84.805" width="0.2" layer="1"/>
-<wire x1="24.525" y1="84.805" x2="24.525" y2="64.295" width="0.2" layer="1"/>
+<wire x1="18.01" y1="57.78" x2="24.51" y2="84.82" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$1">
 <contactref element="LED1" pad="1"/>
 <contactref element="R1" pad="1"/>
-<wire x1="73.3" y1="8.325" x2="69.55" y2="4.575" width="0.2" layer="16"/>
-<wire x1="69.55" y1="3.825" x2="69.55" y2="4.575" width="0.2" layer="16"/>
+<wire x1="71.3" y1="3.5" x2="73.3" y2="5.5" width="0.2" layer="16"/>
 <wire x1="73.3" y1="15.39" x2="71.4" y2="17.29" width="0.2" layer="16"/>
-<wire x1="73.3" y1="8.325" x2="73.3" y2="15.39" width="0.2" layer="16"/>
+<wire x1="73.3" y1="5.5" x2="73.3" y2="15.39" width="0.2" layer="16"/>
 </signal>
 <signal name="N$3">
 <contactref element="LED2" pad="1"/>
 <contactref element="R2" pad="1"/>
-<wire x1="60.4" y1="3.875" x2="62.475" y2="3.875" width="0.2" layer="16"/>
-<wire x1="62.475" y1="3.875" x2="63.2" y2="4.6" width="0.2" layer="16"/>
+<wire x1="61.6" y1="3.5" x2="62.1" y2="3.5" width="0.2" layer="16"/>
+<wire x1="62.1" y1="3.5" x2="63.2" y2="4.6" width="0.2" layer="16"/>
 <wire x1="63.2" y1="4.6" x2="63.2" y2="15.59" width="0.2" layer="16"/>
 <wire x1="63.2" y1="15.59" x2="61.6" y2="17.19" width="0.2" layer="16"/>
 </signal>
@@ -6044,8 +6051,8 @@ design rules under a new name.</description>
 <signal name="LED1">
 <contactref element="LED2" pad="2"/>
 <contactref element="U2" pad="12"/>
-<wire x1="60.4" y1="6.415" x2="58.0051" y2="8.8099" width="0.2" layer="1"/>
-<wire x1="58.0051" y1="8.8099" x2="41.5801" y2="8.8099" width="0.2" layer="1"/>
+<wire x1="61.6" y1="6.04" x2="58.8301" y2="8.8099" width="0.2" layer="1"/>
+<wire x1="58.8301" y1="8.8099" x2="41.5801" y2="8.8099" width="0.2" layer="1"/>
 <wire x1="41.5801" y1="8.8099" x2="18.01" y2="32.38" width="0.2" layer="1"/>
 </signal>
 <signal name="LED2">
@@ -6058,8 +6065,8 @@ design rules under a new name.</description>
 <contactref element="LED1" pad="2"/>
 <contactref element="U2" pad="11"/>
 <wire x1="18.01" y1="34.92" x2="42.03" y2="10.9" width="0.2" layer="1"/>
-<wire x1="65.015" y1="10.9" x2="69.55" y2="6.365" width="0.2" layer="1"/>
-<wire x1="42.03" y1="10.9" x2="65.015" y2="10.9" width="0.2" layer="1"/>
+<wire x1="66.44" y1="10.9" x2="71.3" y2="6.04" width="0.2" layer="1"/>
+<wire x1="42.03" y1="10.9" x2="66.44" y2="10.9" width="0.2" layer="1"/>
 </signal>
 <signal name="SW1">
 <contactref element="S2" pad="2"/>

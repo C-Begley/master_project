@@ -23,7 +23,7 @@
 <layer number="13" name="Route13" color="21" fill="1" visible="no" active="no"/>
 <layer number="14" name="Route14" color="22" fill="1" visible="no" active="no"/>
 <layer number="15" name="Route15" color="23" fill="1" visible="yes" active="yes"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
@@ -4464,6 +4464,7 @@
 <rectangle x1="220.41" y1="350.14" x2="221.41" y2="350.24" layer="21"/>
 <rectangle x1="189.81" y1="350.24" x2="190.41" y2="350.34" layer="21"/>
 <rectangle x1="220.61" y1="350.24" x2="221.21" y2="350.34" layer="21"/>
+<dimension x1="253.381" y1="175.379" x2="253.381" y2="181.401" x3="251.93" y3="178.39" textsize="1.778" layer="1"/>
 </plain>
 <libraries>
 <library name="con-banana">

@@ -8,8 +8,8 @@
 </settings>
 <grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="mm" altunit="mm"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
-<layer number="2" name="Route2" color="16" fill="1" visible="yes" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
+<layer number="2" name="Route2" color="16" fill="1" visible="no" active="yes"/>
 <layer number="3" name="Route3" color="17" fill="1" visible="no" active="no"/>
 <layer number="4" name="Route4" color="18" fill="1" visible="no" active="no"/>
 <layer number="5" name="Route5" color="19" fill="1" visible="no" active="no"/>
@@ -23,7 +23,7 @@
 <layer number="13" name="Route13" color="21" fill="1" visible="no" active="no"/>
 <layer number="14" name="Route14" color="22" fill="1" visible="no" active="no"/>
 <layer number="15" name="Route15" color="23" fill="1" visible="yes" active="yes"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
@@ -8402,28 +8402,6 @@ design rules under a new name.</description>
 <wire x1="289.56" y1="227.99" x2="288.67" y2="227.99" width="0.17" layer="2"/>
 <wire x1="218" y1="179.38" x2="218.37" y2="179.75" width="0.17" layer="2"/>
 <wire x1="218.37" y1="179.75" x2="218.37" y2="180" width="0.17" layer="2"/>
-<contactref element="H13" pad="B3,2"/>
-<contactref element="H5" pad="B3,2"/>
-<contactref element="H6" pad="B3,2"/>
-<contactref element="H7" pad="B3,2"/>
-<contactref element="H8" pad="B3,2"/>
-<contactref element="H1" pad="B3,2"/>
-<contactref element="H2" pad="B3,2"/>
-<contactref element="H3" pad="B3,2"/>
-<contactref element="H4" pad="B3,2"/>
-<contactref element="H21" pad="B3,2"/>
-<contactref element="H22" pad="B3,2"/>
-<contactref element="H14" pad="B3,2"/>
-<contactref element="H15" pad="B3,2"/>
-<contactref element="H16" pad="B3,2"/>
-<contactref element="H9" pad="B3,2"/>
-<contactref element="H10" pad="B3,2"/>
-<contactref element="H11" pad="B3,2"/>
-<contactref element="H12" pad="B3,2"/>
-<contactref element="H17" pad="B3,2"/>
-<contactref element="H18" pad="B3,2"/>
-<contactref element="H19" pad="B3,2"/>
-<contactref element="H20" pad="B3,2"/>
 </signal>
 <signal name="H2-10">
 <contactref element="J1" pad="P$5"/>
@@ -8908,8 +8886,10 @@ design rules under a new name.</description>
 <contactref element="J3" pad="P$47"/>
 <contactref element="J4" pad="P$47"/>
 <wire x1="230.37" y1="280.99" x2="229.37" y2="281.99" width="0.2" layer="1"/>
-<wire x1="223.584" y1="290.776" x2="229.37" y2="284.99" width="0.2" layer="1"/>
-<wire x1="182.93" y1="204.2310875" x2="182.93" y2="286" width="0.2" layer="1"/>
+<wire x1="229.37" y1="284.99" x2="223.584" y2="290.776" width="0.2" layer="1"/>
+<wire x1="223.584" y1="290.776" x2="187.5149125" y2="290.776" width="0.2" layer="1"/>
+<wire x1="187.5149125" y1="290.776" x2="182.93" y2="286.1910875" width="0.2" layer="1"/>
+<wire x1="182.93" y1="286.1910875" x2="182.93" y2="204.2310875" width="0.2" layer="1"/>
 <wire x1="182.93" y1="204.2310875" x2="179.17" y2="200.4710875" width="0.2" layer="1"/>
 <wire x1="229.49" y1="177.51" x2="230.37" y2="178.39" width="0.2" layer="1"/>
 <wire x1="229.37" y1="167.39" x2="229.37" y2="172" width="0.2" layer="1"/>
@@ -8948,10 +8928,6 @@ design rules under a new name.</description>
 <wire x1="122.011" y1="282.989" x2="122.011" y2="282.5903375" width="0.17" layer="1"/>
 <wire x1="123" y1="281.6013375" x2="123" y2="281" width="0.17" layer="1"/>
 <wire x1="122.011" y1="282.5903375" x2="123" y2="281.6013375" width="0.17" layer="1"/>
-<wire x1="182.93" y1="286" x2="182.954" y2="286.024" width="0.2" layer="1"/>
-<wire x1="182.954" y1="286.024" x2="182.954" y2="286.2150875" width="0.2" layer="1"/>
-<wire x1="182.954" y1="286.2150875" x2="187.5149125" y2="290.776" width="0.2" layer="1"/>
-<wire x1="187.5149125" y1="290.776" x2="223.584" y2="290.776" width="0.2" layer="1"/>
 </signal>
 <signal name="H2-34">
 <contactref element="J1" pad="P$17"/>
@@ -10047,6 +10023,90 @@ design rules under a new name.</description>
 <contactref element="J6" pad="P$30"/>
 <wire x1="257.37" y1="273.99" x2="288.67" y2="273.99" width="0.2" layer="15"/>
 <wire x1="257.98" y1="281.38" x2="257.98" y2="274.6" width="0.17" layer="1"/>
+</signal>
+<signal name="N$1">
+<contactref element="J5" pad="P$44"/>
+</signal>
+<signal name="N$2">
+<contactref element="J5" pad="P$43"/>
+</signal>
+<signal name="N$3">
+<contactref element="J5" pad="P$42"/>
+</signal>
+<signal name="N$4">
+<contactref element="J6" pad="P$44"/>
+</signal>
+<signal name="N$5">
+<contactref element="J6" pad="P$43"/>
+</signal>
+<signal name="N$6">
+<contactref element="J6" pad="P$42"/>
+</signal>
+<signal name="N$7">
+<contactref element="H1" pad="B3,2"/>
+</signal>
+<signal name="N$8">
+<contactref element="H2" pad="B3,2"/>
+</signal>
+<signal name="N$9">
+<contactref element="H3" pad="B3,2"/>
+</signal>
+<signal name="N$10">
+<contactref element="H4" pad="B3,2"/>
+</signal>
+<signal name="N$11">
+<contactref element="H5" pad="B3,2"/>
+</signal>
+<signal name="N$12">
+<contactref element="H6" pad="B3,2"/>
+</signal>
+<signal name="N$13">
+<contactref element="H7" pad="B3,2"/>
+</signal>
+<signal name="N$14">
+<contactref element="H8" pad="B3,2"/>
+</signal>
+<signal name="N$15">
+<contactref element="H9" pad="B3,2"/>
+</signal>
+<signal name="N$16">
+<contactref element="H10" pad="B3,2"/>
+</signal>
+<signal name="N$17">
+<contactref element="H11" pad="B3,2"/>
+</signal>
+<signal name="N$18">
+<contactref element="H12" pad="B3,2"/>
+</signal>
+<signal name="N$19">
+<contactref element="H13" pad="B3,2"/>
+</signal>
+<signal name="N$20">
+<contactref element="H14" pad="B3,2"/>
+</signal>
+<signal name="N$21">
+<contactref element="H15" pad="B3,2"/>
+</signal>
+<signal name="N$22">
+<contactref element="H16" pad="B3,2"/>
+</signal>
+<signal name="N$23">
+<contactref element="H17" pad="B3,2"/>
+</signal>
+<signal name="N$24">
+<contactref element="H18" pad="B3,2"/>
+</signal>
+<signal name="N$25">
+<contactref element="H19" pad="B3,2"/>
+</signal>
+<signal name="N$26">
+<contactref element="H20" pad="B3,2"/>
+</signal>
+<signal name="N$27">
+<contactref element="H21" pad="B3,2"/>
+</signal>
+<signal name="N$28">
+<contactref element="H22" pad="B3,2"/>
 </signal>
 </signals>
 <mfgpreviewcolors>
