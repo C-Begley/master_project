@@ -1,0 +1,18 @@
+The MicroPython Demonstration boards use Loboris's ESP32 Firmware
+https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo
+
+Follow these commands:
+1.Navigate to the software/ESP32 directory
+
+2. If you don't have Python 3 installed, install Python 3 and pip
+(I recommend installing Anaconda https://docs.anaconda.com/anaconda/install/ 
+and using it to create virtual enivornments https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
+
+2.`pip3 install esptool.py`    
+
+3.`esptool.py --port /dev/ttyUSB0 erase_flash`
+(This command only works for Linux, you will need to replace /dev/ttyUSB0 with whatever diretory the ESP device can be found)
+
+4.`esptool.py --port /dev/ttyUSB0 write_flash 0x00001000 firmware.bin`
+(You may need to hold down the reset button until it starts)
+

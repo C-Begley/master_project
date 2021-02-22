@@ -1,2 +1,10 @@
-# MEng Individual Project ENG5041PA Hardware and Software Emulation Testbedfor CubeSat Design
+# MEng Individual Project ENG5041PA Hardware and Software Emulation Testbed for CubeSat Design
 
+## Abstract
+CubeSats are praised for reducing the cost of access to space and increasing opportunities for universities and small organisations to carry out space related research. In principal, a small team with an innovative solution could rapidly develop and fly hardware in space using already existing building 'block' components. However, they still require technical electronic knowledge for the construction and testing of designs. While technical knowledge will always be required, especially on custom built CubeSats, this project aimed to reduce this barrier of entry, by providing a test bed framework to program and experiment with potential CubeSat designs.
+
+The project has two main aims: the construction of physical devices for use in testing and developing accompanying software to help use these devices. The main physical device is a FlatSat, which aims to be generic and suitable for a range of projects. It uses PC/104 Plus connectors and has access to power and diagnostic connections. Alongside the FlatSat, there is a mainboard and battery board from an open source CubeSat design, which can be used to test other CubeSat subsystems. 
+
+The project software helps schedule tasks to be run using the mainboard and FlatSat system. These tasks then act as emulations of an entire CubeSat subsystem. This allows for a subsystem to be tested, as if an entire CubeSat had already been constructed. The framework for programming and using this software, strives to be simple enough for those inexperienced with programming to be able to be use, while still giving enough complexity that most aspects of a CubeSat can be emulated.
+
+To demonstrate the usability of the system, two demonstration boards have been constructed. These boards provide example emulations of payload and communication boards. They also provide a template that can be modified to construct and emulate other subsystems.  A demonstration task schedule has also been created to show how devices can interact with the software and mainboard from this project.

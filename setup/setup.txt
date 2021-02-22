@@ -1,0 +1,60 @@
+SETUP PYCUBED BOARD:
+1.Follow the instructions on : https://www.notion.so/Programming-the-Bootloader-a5c2f6b50c3d459eaa0a4f00d8218365#11432bf53fb44763b39cc682d8e2ed8d
+(In case site is taken down, see Programming the BootLoader.pdf)
+
+2.The device should connect to a computer as a external drive. Transfer via USB all the files in software/Mainboard
+(If it hasn't connected, try debugging with Atmel or following PyCubed FAQ/advice. I never got to run the Pycubed board(used Grand Central Metro M4 instead), so can't offer more advice)
+
+SETUP MAIN PROGRAM:
+OPTION ONE: Automatic Running
+1. Rename the file `run_main.py` to main
+2. Restart the device
+3. The main program should run all tasks in the demo file
+
+OPTION TWO: Manually running the code 
+(This is often the best option, as main.py files can sometimes cause issue in Ciruit Python)
+
+1.Run the code from a REPL programm
+ `import run_main as m`
+
+a. Linux users can use Picocom 
+b. Mac users can use screen or Mu
+c. Windows users can use Mu  
+(Other programs may also work, this is not an exhaustive list)
+
+Notes:
+If you wish to use a different folder for running your code, 
+replace the name PROJECT_FOLDER in the file run_main.py with something else.
+ The new folder should follow the same structure and subfolders as demo
+
+See Thesis Pgs.40-49 for more information on the options within a task, interupt and device file
+
+SETUP DEMONSTRATION BOARDS:
+The code for the demonstration boards is in MicroPython, to support using the device as a slave.
+Some Circuit Python libraries etc will not work on these boards and vice versa
+
+The boards provided in the lab should already be flashed. If not follow the steps in Flashing.txt (they are written for a Linux device)
+
+To transfer files to these boards, ampy has to be used 
+e.g `ampy -- port /deb/ttyUSB0 coms_IWC.py`
+(This should work on Mac or Linux but may need to be installed)
+
+There are two programs that can be run on the boards
+`payload_main.py` and `coms_main.py` 
+
+To use the payload add the `payload_main.py`, `demo_adc.py` and `payload_I2C.py`
+
+To use the communication board add `coms_main.py` and `coms_I2C.py`
+
+To run on a terminal, use a REPL program (see above)
+`import payload_main as pld`
+           or
+`import coms_main as cms`
+
+You can also just run the commands inside a REPL terminal
+
+Like with the other files, you can rename them to main. However, this omes with the caveat the boards may need reflashing
+
+
+
+

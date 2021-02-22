@@ -41,7 +41,7 @@ class Coms():
         text = "Highest value:    "
         t_width = self.scr.textWidth(text)
         self.scr.text((self.width//2-t_width//2),self.origin[1]+60, text)
-        self.scr.text((self.width//2+38),self.origin[1]+80, " " + str(self.maxi))
+        self.scr.text((self.width//2+38),self.origin[1]+60, " " + str(self.maxi))
         text = "Lowest value:     "
         t_width = self.scr.textWidth(text)
         self.scr.text((self.width//2-t_width//2),self.origin[1]+80, text)
@@ -84,6 +84,7 @@ class Coms():
             self.reset(call)
         if call[2][2] == "1":
             self.invert(call)
+        self.uart.flush()
 
     def i2c_cb(self,call):
         cbtype = call[0]
